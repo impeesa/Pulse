@@ -1,14 +1,7 @@
-Pulse::Application.routes.draw do |map|
-
-  get "home/index"
-
-  get "dashboard/index"
+Pulse::Application.routes.draw do
 
   resources :results
-  map.root :controller => "result"
-  map.connect '', :controller => "result"
   root :to => "result#index"
-  
   match '/auth/:provider/callback', :to => 'sessions#create'
 
   # The priority is based upon order of creation:
