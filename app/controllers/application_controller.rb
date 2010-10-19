@@ -1,8 +1,8 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-end
 
-class ApplicationController < ActionController::Base
+  protect_from_forgery
+  helper_method :current_user, :signed_in?
+
   protected
 
   def current_user
@@ -13,10 +13,8 @@ class ApplicationController < ActionController::Base
     !!current_user
   end
 
-  helper_method :current_user, :signed_in?
-
-  def current_user=(user)
-    @current_user = user
+  def login(user)
     session[:user_id] = user.id
   end
+
 end

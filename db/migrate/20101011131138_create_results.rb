@@ -8,7 +8,7 @@ class CreateResults < ActiveRecord::Migration
       t.string :Term
       t.date :Period
       t.float :Value
-
+      t.string :Type
       t.timestamps
     end
   end

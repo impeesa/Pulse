@@ -1,8 +1,8 @@
 class CreateUsers < ActiveRecord::Migration
   def self.up
     create_table :users do |t|
-      t.string :name
-
+      t.string :email
+      t.boolean :allowed_to_login, :default => true
       t.timestamps
     end
   end
