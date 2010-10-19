@@ -10,6 +10,9 @@
     = csrf_meta_tag
 
   %body
+    #flash
+      - if msg = flash[:notice]
+        #notice= msg
     - if signed_in?
       #user
         #loginInfo= "Logged in as #{current_user.email}"

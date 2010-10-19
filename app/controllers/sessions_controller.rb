@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   skip_before_filter :get_current_user
-  
+
   def create
     omni_auth = request.env['omniauth.auth']
     handle_omni_auth(omni_auth)
@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
 
   def destroy
     reset_session
-    redirect_to root_path
+    redirect_to root_path, :notice => 'Bye!'
   end
 
   private

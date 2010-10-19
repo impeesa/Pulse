@@ -32,4 +32,10 @@ class ActiveSupport::TestCase
     signed_in_as? user
   end
 
+  def assert_flash_notice(msg)
+    within '#flash' do
+      assert_contain msg
+    end
+  end
+
 end

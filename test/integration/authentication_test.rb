@@ -32,22 +32,22 @@ class AuthenticationTest < ActionController::IntegrationTest
 
   test 'successful authentication callback for non existent user displays message to register with admin' do
     get_successful_omni_auth_callback
-    assert_contain 'register'
+    assert_flash_notice 'not find'
   end
 
   test 'login user not allowed to login shows lock' do
     User.make(:allowed_to_login => 'false')
     get_successful_omni_auth_callback
-    assert_contain 'locked'
+    assert_flash_notice 'locked'
   end
-  
+
   test 'logged in user is locked, then should not be able to continue to use app' do
     user = User.make
     login user
     visit root_path
     user.update_attribute :allowed_to_login, false
     visit root_path
-    assert_contain 'locked'
+    assert_flash_notice 'locked'
   end
 
 end
