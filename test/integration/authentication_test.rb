@@ -40,5 +40,14 @@ class AuthenticationTest < ActionController::IntegrationTest
     get_successful_omni_auth_callback
     assert_contain 'locked'
   end
+  
+  test 'logged in user is locked, then should not be able to continue to use app' do
+    user = User.make
+    login user
+    visit root_path
+    user.update_attribute :allowed_to_login, false
+    visit root_path
+    assert_contain 'locked'
+  end
 
 end

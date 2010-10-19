@@ -14,8 +14,8 @@ class Result < ActiveRecord::Base
   def self.terms_hash
     @terms ||= ordered_hash([
       ['CMTD', 'Month To Date'],
-      ['CYTD', 'Quarter to Date'],
-      ['CYQT', 'Year to Date'],
+      ['CYQT', 'Quarter to Date'],
+      ['CYTD', 'Year to Date'],
     ])
   end
 
