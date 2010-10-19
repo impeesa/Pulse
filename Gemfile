@@ -8,6 +8,7 @@ gem 'haml', '>3'
 
 group :test do
   gem 'webrat', '>=0.7.2.beta.1'
+  gem 'machinist'
 end
 
 group :development do

@@ -10,5 +10,14 @@
     = csrf_meta_tag
 
   %body
-    #main
-      = yield
+    - if signed_in?
+      #user
+        #loginInfo= "Logged in as #{current_user.email}"
+        #logout= link_to('Logout', logout_path)
+      #main
+        = yield
+    - else
+      %div
+        = "You must #{link_to('Login', login_path)} to see this page.".html_safe
+        %br
+        = "Make sure you register with an administrator first."
