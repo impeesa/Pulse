@@ -35,4 +35,10 @@ class AuthenticationTest < ActionController::IntegrationTest
     assert_contain 'register'
   end
 
+  test 'login user not allowed to login shows lock' do
+    User.make(:allowed_to_login => 'false')
+    get_successful_omni_auth_callback
+    assert_contain 'locked'
+  end
+
 end

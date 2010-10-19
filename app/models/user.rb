@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
     end
   end
 
+  class Locked < StandardError; end
+
 end

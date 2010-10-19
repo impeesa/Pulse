@@ -21,13 +21,17 @@ class SessionsController < ApplicationController
       user = authentication.user
     else
       email = omni_auth['user_info']['email']
-      user = User.find_by_email!(email)
+      user = User.find_by_email(email)
+      raise User::NotFound.new(email) unless user
+      raise User::Locked unless user.allowed_to_login
       user.authentications.create_from_omni_auth(omni_auth)
     end
     login user
     redirect_to root_path
-  rescue ActiveRecord::RecordNotFound => ex
+  rescue User::NotFound => ex
     render :text => 'You must register with an administrator before loggin in.'
+  rescue User::Locked
+    render :text => 'Your account is locked.'
   end
 
 end
