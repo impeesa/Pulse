@@ -8,3 +8,4 @@ config/database.yml
 .rvmrc
 webrat.log
 restart.txt
+Gemfile.lock
