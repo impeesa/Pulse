@@ -1,8 +1,5 @@
 Pulse::Application.routes.draw do
 
-  resources :results
-  root :to => "results#index"
-
   # This is a workaround.
   # Originally, /auth/google was to be the url for OmniAuth to use.
   # Howevever, a bug made it so that /auth/google would only work the 1st time.
@@ -11,7 +8,12 @@ Pulse::Application.routes.draw do
   get '/auth/google', :to => redirect('/auth/google_apps')
   match '/auth/:provider/callback', :to => 'sessions#create', :as => :successful_authentication
   get 'login', :to => redirect('/auth/google')
-
   get 'logout' => 'sessions#destroy'
+
+  resources :results
+  root :to => "results#index"
+
+  match '/charts(/:action)' => 'charts'
+  #match '/javascripts/:action' => 'javascripts#:action'
 
 end

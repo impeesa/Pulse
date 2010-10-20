@@ -7,7 +7,7 @@ class ReportTest < ActionController::IntegrationTest
     import_sample_data
     visit results_path
     assert_contain 'Actual'
-    assert_contain 'Target'
+    assert_contain 'Plan'
     assert_contain 'Prior Year'
     assert_contain '$5,207,103.54'
   end

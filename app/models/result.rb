@@ -22,7 +22,7 @@ class Result < ActiveRecord::Base
   def self.types_hash
     @types ||= ordered_hash([
       ['Actual', 'Actual'],
-      ['Target', 'Target'],
+      ['Plan', 'Plan'],
       ['Prior Year', 'Prior Year'],
     ])
   end

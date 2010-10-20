@@ -28,3 +28,7 @@
         - @terms.each do |term_db_name, term_display_name|
           - @types.each do |type_db_name, type_display_name|
             %td= @results.classes(class_db_name).terms(term_db_name).types(type_db_name).first.try(:Value).try(:to_currency)
+
+
+= chart_for 'equal_sales_current_month_chart'
+= chart_for 'equal_sales_year_to_date_chart'

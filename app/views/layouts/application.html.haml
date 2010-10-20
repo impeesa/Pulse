@@ -6,8 +6,11 @@
       Pulse
     = stylesheet_link_tag 'screen', :cache => true
     = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'
-    = javascript_include_tag 'rails', 'application'
+    = javascript_include_tag 'rails', 'highcharts'
     = csrf_meta_tag
+    - if @chart_names.present?
+      - @chart_names.each do |chart|
+        %script{:type => 'text/javascript', :src => "charts/#{chart}.js"}
 
   %body
     #flash
