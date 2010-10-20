@@ -1,6 +1,6 @@
 class ChartsController < ApplicationController
 
-  def equal_sales_current_month_chart
+  def equal_sales_current_month
     @classes = ['Domestic', 'International']
     results = Result.sections('Sales').items('EQUAL')
     cmtd_actual = results.terms('CMTD').types('Actual')
@@ -18,7 +18,7 @@ class ChartsController < ApplicationController
     render :template => 'charts/equal_sales_chart.js.erb'
   end
 
-  def equal_sales_year_to_date_chart
+  def equal_sales_year_to_date
     @classes = ['Domestic', 'International']
     results = Result.sections('Sales').items('EQUAL')
     cytd_actual = results.terms('CYTD').types('Actual')
