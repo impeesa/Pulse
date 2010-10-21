@@ -10,6 +10,7 @@ Pulse::Application.routes.draw do
   get 'login', :to => redirect('/auth/google')
   get 'logout' => 'sessions#destroy'
 
+  get '/results/table' => 'results#table'
   resources :results
   root :to => "results#index"
 

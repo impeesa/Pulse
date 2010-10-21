@@ -1,0 +1,38 @@
+var chart;
+$(document).ready(function() {
+  chart = new Highcharts.Chart({
+    chart: {
+      renderTo: '<%= action_name %>',
+      defaultSeriesType: 'pie',
+      width: 500
+    },
+    title: {
+      text: '<%= action_name.humanize.titleize %>'
+    },
+    plotOptions: {
+      pie: {
+        allowPointSelect: true,
+        cursor: 'pointer',
+        dataLabels: {
+          enabled: true,
+          color: 'white',
+          formatter: function() {
+            var percentage = Math.round(this.y / <%= @line_of_credit %> * 100) + '%'
+            return this.y + ' (' + percentage + ')'
+          }
+        }
+      }
+    },
+    legend: {
+      layout: 'vertical'
+    },
+    series: [{
+      name: 'Line of Credit',
+      data: [
+        ['Balance', <%= @balance %>],
+        ['Available', <%= @available %>]
+      ]
+    }]
+  });
+});
+

@@ -36,4 +36,11 @@ class ChartsController < ApplicationController
     render :template => 'charts/equal_sales_chart.js.erb'
   end
 
+  def line_of_credit
+    balance_sheet_cash_line_of_credit_current_month = Result.sections('Balance Sheet').items('Cash').classes('LOC').terms('CM')
+    @balance = balance_sheet_cash_line_of_credit_current_month.types('Actual').sum(:Value)
+    @line_of_credit = balance_sheet_cash_line_of_credit_current_month.types('Plan').sum(:Value)
+    @available = @line_of_credit - @balance
+  end
+
 end
