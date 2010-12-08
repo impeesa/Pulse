@@ -1,5 +1,8 @@
 Pulse::Application.routes.draw do
 
+  resources :groups
+  resources :users
+
   # This is a workaround.
   # Originally, /auth/google was to be the url for OmniAuth to use.
   # Howevever, a bug made it so that /auth/google would only work the 1st time.

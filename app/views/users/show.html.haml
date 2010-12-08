@@ -1,0 +1,16 @@
+%p#notice= notice
+
+%p
+  %b Email:
+  = @user.email
+%p
+  %b Allowed to login:
+  = @user.allowed_to_login
+%p
+  %b Groups:
+  = @user.groups.map(&:name).join(', ')
+
+= link_to 'Edit', edit_user_path(@user)
+\|
+= link_to 'Back', users_path
+
