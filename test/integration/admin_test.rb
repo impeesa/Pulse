@@ -22,9 +22,14 @@ class AdminTest < ActionController::IntegrationTest
   end
 
   test 'admin should be able to select chart membership in groups' do
-    login User.make_admin
+    login User.make(:admin)
+    chart = Chart.make
     Group.make(:name => 'Sales')
-    visit edit_chart_
+    visit edit_chart_path(chart)
+    check 'Sales'
+    click_button 'Save'
+    visit chart_path(chart)
+    assert_contain 'Sales'
   end
 
 end

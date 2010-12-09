@@ -1,3 +1,2 @@
-= chart_placeholder 'equal_sales_current_month'
-= chart_placeholder 'equal_sales_year_to_date'
-= chart_placeholder 'line_of_credit'
+- @charts.each do |chart|
+  = chart_placeholder chart.name

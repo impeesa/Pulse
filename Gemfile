@@ -6,7 +6,7 @@ gem 'fastercsv', '1.5.3'
 gem 'haml', '>3'
 
 group :test do
-  gem 'webrat', '>=0.7.2.beta.1'
+  gem 'webrat', '0.7.2'
   gem 'machinist'
   gem 'faker'
 end

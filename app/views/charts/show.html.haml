@@ -1,0 +1,13 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @chart.name
+%p
+  %b Groups:
+  = @chart.groups.map(&:name).join(', ')
+
+= link_to 'Edit', edit_chart_path(@chart)
+\|
+= link_to 'Back', charts_path
+

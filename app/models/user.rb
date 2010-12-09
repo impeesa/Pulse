@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_many :authentications, :dependent => :destroy
-  has_many :user_groups
+  has_many :user_groups, :dependent => :destroy
   has_many :groups, :through => :user_groups
 
   validates_presence_of :email
@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
     raise NotFound.new(id_or_email) unless user
     raise Locked unless user.allowed_to_login
     user
+  end
+
+  def charts
+    groups.map(&:charts).flatten
   end
 
   class NotFound < StandardError

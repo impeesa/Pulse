@@ -1,6 +1,7 @@
 class ResultsController < ApplicationController
 
   def index
+    @charts = current_user.charts
   end
 
   def table

@@ -5,3 +5,7 @@ require 'test/blueprints'
 end
 
 User.make_admin
+
+Chart.names.each do |name|
+  Chart.make :name => name
+end
