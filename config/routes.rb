@@ -14,6 +14,14 @@ Pulse::Application.routes.draw do
   get '/results/table' => 'results#table'
   resources :results
 
+  resources :account_details do
+    collection do
+      get 'decreased'
+      get 'increased'
+      get 'new_accounts'
+    end
+  end
+
   resources :groups
 
   resources :users

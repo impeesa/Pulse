@@ -1,0 +1,27 @@
+%table#account-details
+  %tr#column-group-header
+    %th
+    %th
+    %th
+    %th
+    %th
+    - AccountDetail.column_groups.each do |column_group|
+      %th{:colspan => AccountDetail.column_sub_groups.size}= column_group.humanize.upcase
+  %tr#column-sub-group-header
+    %th Branch
+    %th Sp #
+    %th Sp name
+    %th Acct #
+    %th Acct name
+    - AccountDetail.column_groups.each do |column_group|
+      - AccountDetail.column_sub_groups.each do |column_sub_group|
+        %th.number-column= column_sub_group.titleize
+  - @account_details.each do |account_detail|
+    %tr
+      %td= account_detail.branch
+      %td= account_detail.sp_number
+      %td= account_detail.sp_name
+      %td= account_detail.account_number
+      %td= account_detail.account_name
+      - AccountDetail.number_columns.each do |column|
+        %td= positive_representation(account_detail.send(column))

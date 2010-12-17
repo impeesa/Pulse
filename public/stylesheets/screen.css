@@ -56,3 +56,15 @@ table tfoot th, table tfoot td {
 table tfoot td {
   font-weight: bold;
   text-align: right; }
+
+#account-details {
+  font-size: 8pt;
+  table-layout: fixed; }
+  #account-details td, #account-details th {
+    padding: 1mm; }
+  #account-details tr#column-group-header th {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10pt; }
+  #account-details tr#column-sub-group-header th.number-column {
+    width: 25px; }
