@@ -1,7 +1,7 @@
 %h2 Filters
 %ul#account-detail-filters
   %li= link_to 'None', :action => :index
-  = list_of %w{decreased increased new_accounts} do |filter|
+  = list_of %w{summaries decreased increased new_accounts} do |filter|
     = link_to filter.humanize, :action => filter
 
 %table#account-details

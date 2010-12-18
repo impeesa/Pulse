@@ -67,7 +67,8 @@ table tfoot td {
     font-weight: bold;
     font-size: 10pt; }
   #account-details tr#column-sub-group-header th.number-column {
-    width: 25px; }
+    width: 40px;
+    text-align: center; }
 
 ul#account-detail-filters li {
   text-indent: 0.5cm; }

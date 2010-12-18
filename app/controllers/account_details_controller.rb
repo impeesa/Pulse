@@ -19,4 +19,9 @@ class AccountDetailsController < ApplicationController
     render :index
   end
 
+  def summaries
+    @account_details = AccountDetail.summaries
+    render :index
+  end
+
 end

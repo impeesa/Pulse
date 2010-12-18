@@ -29,6 +29,11 @@ class AccountDetailsTest < ActionController::IntegrationTest
     assert_contain_account_details AccountDetail.new_accounts, AccountDetail.decreased.first
   end
 
+  test '#account_summaries should return branch totals' do
+    visit summaries_account_details_path
+    assert_contain_account_details AccountDetail.summaries
+  end
+
   # custom assertions.
 
   def assert_contain_account_details(account_details, excluded_account_detail = nil)

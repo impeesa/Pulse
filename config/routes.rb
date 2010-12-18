@@ -19,6 +19,7 @@ Pulse::Application.routes.draw do
       get 'decreased'
       get 'increased'
       get 'new_accounts'
+      get 'summaries'
     end
   end
 

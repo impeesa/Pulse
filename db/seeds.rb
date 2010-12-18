@@ -1,4 +1,5 @@
 require 'test/blueprints'
+require 'import_sample_data'
 
 ['Admin', 'Sales'].each do |group_name|
   Group.make(:name => group_name)
@@ -9,3 +10,6 @@ User.make_admin
 Chart.names.each do |name|
   Chart.make :name => name
 end
+
+import_sample_results
+import_sample_account_details
