@@ -1,7 +1,7 @@
 class CreateAccountDetails < ActiveRecord::Migration
   def self.up
     create_table :account_details do |t|
-      t.string :branch
+      t.integer :branch
       t.integer :sp_number
       t.string :sp_name
       t.integer :account_number

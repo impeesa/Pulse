@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(:version => 20101217010712) do
 
   create_table "account_details", :force => true do |t|
-    t.string  "branch"
+    t.integer "branch"
     t.integer "sp_number"
     t.string  "sp_name"
     t.integer "account_number"

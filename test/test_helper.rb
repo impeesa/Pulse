@@ -11,6 +11,8 @@ require 'import_sample_data'
 
 class ActiveSupport::TestCase
 
+  include Webrat::HaveTagMatcher
+
   def omni_auth_header(options = {})
     default = {'provider' => 'google_apps', 'uid' => 'secret', 'user_info' => {'email' => 'example@example.com'}}
     default.deep_merge(options)

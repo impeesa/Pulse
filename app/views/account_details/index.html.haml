@@ -1,3 +1,9 @@
+%h2 Filters
+%ul#account-detail-filters
+  %li= link_to 'None', :action => :index
+  = list_of %w{decreased increased new_accounts} do |filter|
+    = link_to filter.humanize, :action => filter
+
 %table#account-details
   %tr#column-group-header
     %th
@@ -17,7 +23,8 @@
       - AccountDetail.column_sub_groups.each do |column_sub_group|
         %th.number-column= column_sub_group.titleize
   - @account_details.each do |account_detail|
-    %tr
+    -# This is a lot faster than using content_tag_for.
+    %tr{:id => "account_detail_#{account_detail.id}"}
       %td= account_detail.branch
       %td= account_detail.sp_number
       %td= account_detail.sp_name

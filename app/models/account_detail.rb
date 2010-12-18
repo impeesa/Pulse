@@ -1,8 +1,9 @@
 class AccountDetail < ActiveRecord::Base
 
-  scope :decreased, where('ytd_variance_total < 0')
-  scope :increased, where('ytd_variance_total > 0')
-  scope :new_accounts, where('pytd_total is null')
+  scope :by_branch_and_account_number, order('branch, account_number')
+  scope :decreased, where('ytd_variance_total < 0').order('ytd_variance_total desc')
+  scope :increased, where('ytd_variance_total > 0').order('ytd_variance_total')
+  scope :new_accounts, where('pytd_total is null').order('ytd_variance_total')
 
   def self.column_groups
     @column_groups ||= %w{cytd pytd ytd_variance}.freeze

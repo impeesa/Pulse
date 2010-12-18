@@ -4,7 +4,7 @@ class ReportTest < ActionController::IntegrationTest
 
   test 'should display basic sales data in text' do
     login
-    import_sample_data
+    import_sample_results
     visit results_table_path
     assert_contain 'Actual'
     assert_contain 'Plan'

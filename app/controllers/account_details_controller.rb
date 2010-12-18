@@ -1,7 +1,7 @@
 class AccountDetailsController < ApplicationController
 
   def index
-    @account_details = AccountDetail.scoped
+    @account_details = AccountDetail.by_branch_and_account_number
   end
 
   def decreased

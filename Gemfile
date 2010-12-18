@@ -16,6 +16,10 @@ group :development do
   gem 'sqlite3-ruby', '1.3.1', :require => 'sqlite3'
 end
 
+group :development, :test do
+  gem 'awesome_print'
+end
+
 group :production do
   gem 'mysql2'
 end
