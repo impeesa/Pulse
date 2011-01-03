@@ -47,7 +47,7 @@ table caption {
   padding-bottom: 2mm; }
 table thead th {
   text-align: center; }
-table tbody td {
+table tbody td.number {
   text-align: right; }
 table tbody tr.types {
   text-indent: 2em; }

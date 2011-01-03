@@ -11,24 +11,24 @@
     %th
     %th
     %th
-    - AccountDetail.column_groups.each do |column_group|
-      %th{:colspan => AccountDetail.column_sub_groups.size}= column_group.humanize.upcase
+    - AccountDetailGroups.column_groups.each do |column_group|
+      %th{:colspan => AccountDetailGroups.column_sub_groups.size}= column_group.humanize.upcase
   %tr#column-sub-group-header
     %th Branch
     %th Sp #
     %th Sp name
     %th Acct #
     %th Acct name
-    - AccountDetail.column_groups.each do |column_group|
-      - AccountDetail.column_sub_groups.each do |column_sub_group|
+    - AccountDetailGroups.column_groups.each do |column_group|
+      - AccountDetailGroups.column_sub_groups.each do |column_sub_group|
         %th.number-column= column_sub_group.titleize
   - @account_details.each do |account_detail|
     -# This is a lot faster than using content_tag_for.
     %tr{:id => "account_detail_#{account_detail.id}"}
-      %td= account_detail.branch
-      %td= account_detail.sp_number
-      %td= account_detail.sp_name
-      %td= account_detail.account_number
-      %td= account_detail.account_name
+      %td.number= account_detail.Myers_BranchID
+      %td.number= account_detail.Customer_No
+      %td= account_detail.Customer_Name
+      %td.number= account_detail.Sales_ID
+      %td= account_detail.Sales_Name
       - AccountDetail.number_columns.each do |column|
-        %td= positive_representation(account_detail.send(column))
+        %td.number= positive_representation(account_detail.send(column))

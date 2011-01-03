@@ -1,4 +1,4 @@
-branch,sp_number,sp_name,account_number,account_name,cytd_a,cytd_b,cytd_c,cytd_d,cytd_e,cytd_f,cytd_total,pytd_a,pytd_b,pytd_c,pytd_d,pytd_e,pytd_f,pytd_total,ytd_variance_a,ytd_variance_b,ytd_variance_c,ytd_variance_d,ytd_variance_e,ytd_variance_f,ytd_variance_total
+Myers_BranchID,Customer_No,Customer_Name,Sales_ID,Sales_Name,CYTD_Qty_A,CYTD_Qty_B,CYTD_Qty_C,CYTD_Qty_D,CYTD_Qty_E,CYTD_Qty_F,CYTD_Qty_Total,PYTD_Qty_A,PYTD_Qty_B,PYTD_Qty_C,PYTD_Qty_D,PYTD_Qty_E,PYTD_Qty_F,PYTD_Qty_Total,Var_Qty_A,Var_Qty_B,Var_Qty_C,Var_Qty_D,Var_Qty_E,Var_Qty_F,Var_Qty_Total
 3,99845,BILL HARLOW,108396,OBION COUNTY SCHOOLS,10.00,6.00,,,,,16.00,,,,,,,,10.00,6.00,,,,,16.00
 3,99845,BILL HARLOW,108791,SOUTHLAND KENWORTH--,,,,0.20,,,0.20,,,,,,,,,,,0.20,,,0.20
 3,99845,BILL HARLOW,108884,KYLE TRUCKING INC,,1.00,,,,,1.00,,,,,,,,,1.00,,,,,1.00

@@ -12,35 +12,6 @@
 
 ActiveRecord::Schema.define(:version => 20101217010712) do
 
-  create_table "account_details", :force => true do |t|
-    t.integer "branch"
-    t.integer "sp_number"
-    t.string  "sp_name"
-    t.integer "account_number"
-    t.string  "account_name"
-    t.float   "cytd_a"
-    t.float   "cytd_b"
-    t.float   "cytd_c"
-    t.float   "cytd_d"
-    t.float   "cytd_e"
-    t.float   "cytd_f"
-    t.float   "cytd_total"
-    t.float   "pytd_a"
-    t.float   "pytd_b"
-    t.float   "pytd_c"
-    t.float   "pytd_d"
-    t.float   "pytd_e"
-    t.float   "pytd_f"
-    t.float   "pytd_total"
-    t.float   "ytd_variance_a"
-    t.float   "ytd_variance_b"
-    t.float   "ytd_variance_c"
-    t.float   "ytd_variance_d"
-    t.float   "ytd_variance_e"
-    t.float   "ytd_variance_f"
-    t.float   "ytd_variance_total"
-  end
-
   create_table "authentications", :force => true do |t|
     t.integer "user_id"
     t.string  "provider"
@@ -75,6 +46,38 @@ ActiveRecord::Schema.define(:version => 20101217010712) do
     t.string   "Type"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "tbl_Output_SPOS", :force => true do |t|
+    t.float   "Region"
+    t.string  "Report_name"
+    t.string  "Myers_BranchID"
+    t.integer "Sales_ID"
+    t.string  "Sales_Name"
+    t.integer "Customer_No"
+    t.string  "Customer_Name"
+    t.float   "CYTD_Qty_A"
+    t.float   "CYTD_Qty_B"
+    t.float   "CYTD_Qty_C"
+    t.float   "CYTD_Qty_D"
+    t.float   "CYTD_Qty_E"
+    t.float   "CYTD_Qty_F"
+    t.float   "CYTD_Qty_Total"
+    t.float   "PYTD_Qty_A"
+    t.float   "PYTD_Qty_B"
+    t.float   "PYTD_Qty_C"
+    t.float   "PYTD_Qty_D"
+    t.float   "PYTD_Qty_E"
+    t.float   "PYTD_Qty_F"
+    t.float   "PYTD_Qty_Total"
+    t.float   "Var_Qty_A"
+    t.float   "Var_Qty_B"
+    t.float   "Var_Qty_C"
+    t.float   "Var_Qty_D"
+    t.float   "Var_Qty_E"
+    t.float   "Var_Qty_F"
+    t.float   "Var_Qty_Total"
+    t.float   "WeekNum_ID"
   end
 
   create_table "user_groups", :force => true do |t|
