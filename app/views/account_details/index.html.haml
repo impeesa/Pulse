@@ -4,6 +4,9 @@
   = list_of %w{summaries decreased increased new_accounts} do |filter|
     = link_to filter.humanize, :action => filter
 
+= label_tag 'week', 'Week'
+= select_tag 'week', options_from_collection_for_select(AccountDetail.weeks, 'to_s', 'to_s', @week), :include_blank => true
+
 %table#account-details
   %tr#column-group-header
     %th

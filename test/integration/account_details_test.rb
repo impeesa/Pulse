@@ -34,6 +34,15 @@ class AccountDetailsTest < ActionController::IntegrationTest
     assert_contain_account_details AccountDetail.summaries
   end
 
+  test 'filter by week num' do
+    included_account_detail = AccountDetail.first
+    excluded_account_detail = AccountDetail.where("WeekNum_ID != #{included_account_detail.WeekNum_ID}").first
+    # In reality, this URL is reached from selecting the week from the select tag and AJAX redirecting.
+    visit account_details_path(:week => included_account_detail.WeekNum_ID)
+    assert_contain_account_detail_row included_account_detail
+    assert_not_contain_account_detail_row excluded_account_detail
+  end
+
   # custom assertions.
 
   def assert_contain_account_details(account_details, excluded_account_detail = nil)
