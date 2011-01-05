@@ -1,11 +1,18 @@
 %h2 Filters
-%ul#account-detail-filters
-  %li= link_to 'None', :action => :index
-  = list_of %w{summaries decreased increased new_accounts} do |filter|
-    = link_to filter.humanize, :action => filter
 
-= label_tag 'week', 'Week'
-= select_tag 'week', options_from_collection_for_select(AccountDetail.weeks, 'to_s', 'to_s', @week), :include_blank => true
+%p
+  %ul#account-detail-filters
+    %li= link_to 'None', :action => :index
+    = list_of %w{summaries decreased increased new_accounts} do |filter|
+      = link_to filter.humanize, :action => filter
+
+%p
+  = label_tag 'week', 'Week'
+  = select_tag 'week', options_from_collection_for_select(AccountDetail.weeks, 'to_s', 'to_s', @week), :include_blank => true
+
+- if @week.present?
+  %p
+    = link_to "Full report in Excel for #{@week}", "/account_details_reports/MTS_Outsales_#{@week}.xlsx"
 
 %table#account-details
   %tr#column-group-header

@@ -24,7 +24,7 @@ class AccountDetail < ActiveRecord::Base
   scope :summaries, group('Myers_branchID').select((non_number_columns + number_columns.map { |column| "sum(#{column}) as #{column}" }).join(', ')).order('Myers_BranchID')
 
   def self.weeks
-    order(:WeekNum_ID).map(&:WeekNum_ID).uniq
+    all.map { |account_detail| account_detail.WeekNum_ID.to_s }.sort.uniq
   end
 
 end
