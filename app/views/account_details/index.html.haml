@@ -31,7 +31,7 @@
     %th Acct name
     - AccountDetailGroups.column_groups.each do |column_group|
       - AccountDetailGroups.column_sub_groups.each do |column_sub_group|
-        %th.number-column= column_sub_group.titleize
+        %th.number= column_sub_group.titleize
   - @account_details.each do |account_detail|
     -# This is a lot faster than using content_tag_for.
     %tr{:id => "account_detail_#{account_detail.id}"}
@@ -41,4 +41,4 @@
       %td.number= account_detail.Sales_ID
       %td= account_detail.Sales_Name
       - AccountDetail.number_columns.each do |column|
-        %td.number= positive_representation(account_detail.send(column))
+        %td.number{:class => extract_sub_group(column)}= positive_representation(account_detail.send(column))

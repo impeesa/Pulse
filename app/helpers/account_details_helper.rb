@@ -10,4 +10,8 @@ module AccountDetailsHelper
     float < 0 ? "(#{float.abs})" : float
   end
 
+  def extract_sub_group(column)
+    'sub_group_' + column.split('_').last
+  end
+
 end
