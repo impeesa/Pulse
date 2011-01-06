@@ -12,7 +12,7 @@ end
 
 class User
   def self.make_admin
-    user = make :email => 'jared@redningja.com'
+    user = make :email => 'jared@redningja.com', :is_admin => true
     user.groups << Group.find_or_create_by_name('Admin')
     user
   end

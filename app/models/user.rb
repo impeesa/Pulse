@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
   validates_inclusion_of :allowed_to_login, :in => [true, false]
 
   def self.find_authorized_by_id_or_email!(id_or_email)
-    if id_or_email.is_a?(Integer) || id_or_email.match(/^[0-9]+$/)
+    if id_or_email.is_a?(Integer) || (id_or_email && id_or_email.match(/^[0-9]+$/))
       user = find_by_id(id_or_email)
     else
       user = find_by_email(id_or_email)

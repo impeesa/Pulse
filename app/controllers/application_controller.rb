@@ -31,6 +31,12 @@ class ApplicationController < ActionController::Base
     render_user_not_found
   end
 
+  def require_admin
+    unless @current_user.is_admin?
+      render_layout_only 'You must be an administrator to access this page'
+    end
+  end
+
   def render_user_locked
     render_layout_only 'Your account is locked.'
   end

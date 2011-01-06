@@ -10,14 +10,14 @@ class AuthenticationTest < ActionController::IntegrationTest
 
   test 'successful authentication callback finds existing authentication and user and logs in user' do
     user = Authentication.make.user
-    get_successful_omni_auth_callback
+    get_successful_omni_auth_callback user
     follow_redirect!
     signed_in_as? user
   end
 
   test 'successful authentication callback for first time user creates authentication and logs in user' do
     user = User.make
-    get_successful_omni_auth_callback
+    get_successful_omni_auth_callback user
     follow_redirect!
     assert_not_nil user.authentications.first
     signed_in_as? user
@@ -31,13 +31,13 @@ class AuthenticationTest < ActionController::IntegrationTest
   end
 
   test 'successful authentication callback for non existent user displays message to register with admin' do
-    get_successful_omni_auth_callback
+    get_successful_omni_auth_callback User.new
     assert_flash_notice 'not find'
   end
 
   test 'login user not allowed to login shows lock' do
-    User.make(:allowed_to_login => 'false')
-    get_successful_omni_auth_callback
+    user = User.make(:allowed_to_login => 'false')
+    get_successful_omni_auth_callback user
     assert_flash_notice 'locked'
   end
 

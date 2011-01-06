@@ -1,5 +1,7 @@
 class ChartsController < ApplicationController
 
+  before_filter :require_admin, :except => [:index, :show]
+
   def index
     @charts = Chart.all
 

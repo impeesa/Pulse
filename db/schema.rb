@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101217010712) do
+ActiveRecord::Schema.define(:version => 20110106041415) do
 
   create_table "authentications", :force => true do |t|
     t.integer "user_id"
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20101217010712) do
     t.boolean  "allowed_to_login", :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_admin",         :default => false
   end
 
 end
