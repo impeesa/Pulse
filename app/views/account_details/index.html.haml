@@ -1,0 +1,44 @@
+%h2 Filters
+
+%p
+  %ul#account-detail-filters
+    %li= link_to 'None', :action => :index
+    = list_of %w{summaries decreased increased new_accounts} do |filter|
+      = link_to filter.humanize, :action => filter
+
+%p
+  = label_tag 'week', 'Week'
+  = select_tag 'week', options_from_collection_for_select(AccountDetail.weeks, 'to_s', 'to_s', @week), :include_blank => true
+
+- if @week.present?
+  %p
+    = link_to "Full report in Excel for #{@week}", "/account_details_reports/MTS_Outsales_#{@week}.xlsx"
+
+%table#account-details
+  %tr#column-group-header
+    %th
+    %th
+    %th
+    %th
+    %th
+    - AccountDetailGroups.column_groups.each do |column_group|
+      %th{:colspan => AccountDetailGroups.column_sub_groups.size}= column_group.humanize.upcase
+  %tr#column-sub-group-header
+    %th Branch
+    %th Sp #
+    %th Sp name
+    %th Acct #
+    %th Acct name
+    - AccountDetailGroups.column_groups.each do |column_group|
+      - AccountDetailGroups.column_sub_groups.each do |column_sub_group|
+        %th.number= column_sub_group.titleize
+  - @account_details.each do |account_detail|
+    -# This is a lot faster than using content_tag_for.
+    %tr{:id => "account_detail_#{account_detail.id}"}
+      %td.number= account_detail.Myers_BranchID
+      %td.number= account_detail.Customer_No
+      %td= account_detail.Customer_Name
+      %td.number= account_detail.Sales_ID
+      %td= account_detail.Sales_Name
+      - AccountDetail.number_columns.each do |column|
+        %td.number{:class => extract_sub_group(column)}= positive_representation(account_detail.send(column))

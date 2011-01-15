@@ -1,0 +1,9 @@
+%h1
+  :plain
+    Editing #{@chart.name}
+
+= render 'form'
+
+= link_to 'Show', @chart
+\|
+= link_to 'Back', charts_path

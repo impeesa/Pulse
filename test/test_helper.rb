@@ -11,8 +11,10 @@ require 'import_sample_data'
 
 class ActiveSupport::TestCase
 
-  def omni_auth_header(options = {})
-    default = {'provider' => 'google_apps', 'uid' => 'secret', 'user_info' => {'email' => 'example@example.com'}}
+  include Webrat::HaveTagMatcher
+
+  def omni_auth_header(email, options = {})
+    default = {'provider' => 'google_apps', 'uid' => 'secret', 'user_info' => {'email' => email}}
     default.deep_merge(options)
   end
 
@@ -20,14 +22,14 @@ class ActiveSupport::TestCase
     assert_contain "Logged in as #{user.email}"
   end
 
-  def get_successful_omni_auth_callback
-    header('omniauth.auth', omni_auth_header)
+  def get_successful_omni_auth_callback(user)
+    header('omniauth.auth', omni_auth_header(user.email))
     visit successful_authentication_path(:provider => 'google_apps')
   end
 
   def login(user = nil)
     user = user || User.make
-    get_successful_omni_auth_callback
+    get_successful_omni_auth_callback user
     follow_redirect!
     signed_in_as? user
   end

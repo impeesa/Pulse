@@ -1,0 +1,21 @@
+= form_for @user do |f|
+  -if @user.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+      %ul
+        - @user.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :email
+    = f.text_field :email
+  .field
+    = f.label :allowed_to_login
+    = f.check_box :allowed_to_login
+  - Group.all.each do |group|
+    .field
+      = check_box_tag 'user[group_ids][]', group.id, @user.groups.include?(group), :id => "user_group_#{group.id}"
+      = label_tag "user_group_#{group.id}", group.name
+
+  .actions
+    = f.submit 'Save'

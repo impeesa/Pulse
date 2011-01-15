@@ -1,0 +1,15 @@
+= form_for @chart do |f|
+  -if @chart.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@chart.errors.count, "error")} prohibited this chart from being saved:"
+      %ul
+        - @chart.errors.full_messages.each do |msg|
+          %li= msg
+
+  - Group.all.each do |group|
+    .field
+      = check_box_tag 'chart[group_ids][]', group.id, @chart.groups.include?(group), :id => "chart_group_#{group.id}"
+      = label_tag "chart_group_#{group.id}", group.name
+
+  .actions
+    = f.submit 'Save'

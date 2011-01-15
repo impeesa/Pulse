@@ -1,0 +1,23 @@
+%h1 Listing users
+
+%table
+  %tr
+    %th Email
+    %th Allowed to login
+    %th Groups
+    %th
+    %th
+    %th
+
+  - @users.each do |user|
+    %tr
+      %td= mail_to user.email
+      %td= user.allowed_to_login
+      %td= user.groups.map(&:name).join(', ')
+      %td= link_to 'Show', user
+      %td= link_to 'Edit', edit_user_path(user)
+      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New User', new_user_path

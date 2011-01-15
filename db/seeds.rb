@@ -1,7 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+require 'test/blueprints'
+require 'import_sample_data'
+
+['Admin', 'Sales'].each do |group_name|
+  Group.make(:name => group_name)
+end
+
+User.make_admin
+
+Chart.names.each do |name|
+  Chart.make :name => name
+end
+
+import_sample_results
+import_sample_account_details

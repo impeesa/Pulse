@@ -17,7 +17,7 @@ table
     th
       text-align: center
   tbody
-    td
+    td.number
       text-align: right
     tr.types
       text-indent: 2em
@@ -27,3 +27,24 @@ table
     td
       font-weight: bold
       text-align: right
+
+#account-details
+  font-size: 8pt
+  table-layout: fixed
+  td, th
+    padding: 1mm
+  tr#column-group-header
+    th
+      text-align: center
+      font-weight: bold
+      font-size: 10pt
+  tr#column-sub-group-header
+    th.number
+      width: 40px
+      text-align: center
+  td.sub_group_Total
+    background: #DBE6F1
+
+ul#account-detail-filters
+  li
+    text-indent: 0.5cm
