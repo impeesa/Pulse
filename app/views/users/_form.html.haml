@@ -1,21 +1,26 @@
-= form_for @user do |f|
-  -if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |msg|
-          %li= msg
+-if @user.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+    %ul
+      - @user.errors.full_messages.each do |msg|
+        %li= msg
+.group
+  = f.label :email, "Email", :class => :label
+  = f.text_field :email, :class => 'text_field'
 
-  .field
-    = f.label :email
-    = f.text_field :email
-  .field
-    = f.label :allowed_to_login
-    = f.check_box :allowed_to_login
+.group
+  = f.check_box :allowed_to_login, :class => 'check_box_field'
+  = f.label :allowed_to_login, "Allowed to login", :class => :label, :style => "display:inline"
+
+.group
   - Group.all.each do |group|
-    .field
-      = check_box_tag 'user[group_ids][]', group.id, @user.groups.include?(group), :id => "user_group_#{group.id}"
-      = label_tag "user_group_#{group.id}", group.name
+    = check_box_tag 'user[group_ids][]', group.id, @user.groups.include?(group), :id => "user_group_#{group.id}"
+    = label_tag "user_group_#{group.id}", group.name
+    %br/
+        
+.group.navform.wat-cf
+  %button.button{:type => 'submit'}
+    = image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
+    = t("web-app-theme.save", :default => "Save")
+  = link_to raw("#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}"), users_path, :class => "button"
 
-  .actions
-    = f.submit 'Save'

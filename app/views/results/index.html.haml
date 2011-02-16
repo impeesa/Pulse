@@ -1,2 +1,8 @@
-- @charts.each do |chart|
-  = chart_placeholder chart.name
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "Index", results_path
+      %li.last= link_to "Table", results_table_path
+  .content
+    - @charts.each do |chart|
+      = chart_placeholder chart.name

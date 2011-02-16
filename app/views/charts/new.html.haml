@@ -1,5 +1,11 @@
-%h1 New chart
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to t("web-app-theme.list", :default => "List"), charts_path
+      %li.active= link_to t("web-app-theme.new", :default => "New"), new_chart_path
+  .content
+    %h2.title New chart
+    .inner
+      - form_for @chart, :url => charts_path, :html => { :class => :form } do |f|
+        = render :partial => "form", :locals => {:f => f}
 
-= render 'form'
-
-= link_to 'Back', charts_path

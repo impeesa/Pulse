@@ -74,3 +74,7 @@ table tfoot td {
 
 ul#account-detail-filters li {
   text-indent: 0.5cm; }
+
+#loginInfo {
+  color: #fff;
+}

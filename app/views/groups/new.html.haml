@@ -1,5 +1,11 @@
-%h1 New group
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to t("web-app-theme.list", :default => "List"), groups_path
+      %li.active= link_to t("web-app-theme.new", :default => "New"), new_group_path
+  .content
+    %h2.title New group
+    .inner
+      - form_for @group, :url => groups_path, :html => { :class => :form } do |f|
+        = render :partial => "form", :locals => {:f => f}
 
-= render 'form'
-
-= link_to 'Back', groups_path

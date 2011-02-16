@@ -42,6 +42,8 @@ module Pulse
     config.generators do |g|
       g.template_engine :haml
       g.test_framework :test_unit, :fixture => false
+      # This is for adding theme - Giang Nguyen, ndgiang84@gmail.com
+      g.template_engine "web_app_theme"
     end
   end
 end
