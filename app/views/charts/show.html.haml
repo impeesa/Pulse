@@ -1,13 +1,20 @@
-%p#notice= notice
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "List", charts_path
+      %li= link_to "New", new_chart_path
+      %li.active= link_to "Show", chart_path
+  .content
+    .inner
+      %p
+        %b Name:
+        = @chart.name
+      %p
+        %b Groups:
+        = @chart.groups.map(&:name).join(', ')
 
-%p
-  %b Name:
-  = @chart.name
-%p
-  %b Groups:
-  = @chart.groups.map(&:name).join(', ')
-
-= link_to 'Edit', edit_chart_path(@chart)
-\|
-= link_to 'Back', charts_path
+      %br/
+      .wat-cf
+        #{ link_to raw("#{image_tag("web-app-theme/application_edit.png", :alt => t("web-app-theme.edit", :default=> "Edit"))} #{t("web-app-theme.edit", :default=> "Edit")}"), edit_chart_path(@chart), :class => "button" } 
+        #{ link_to raw("#{image_tag("web-app-theme/cross.png", :alt => t("web-app-theme.delete", :default=> "Delete"))} #{t("web-app-theme.delete", :default => "Delete")}"), chart_path(@chart), :method => "delete", :class => "button", :confirm => t("web-app-theme.confirm", :default => "Are you sure?") }
 

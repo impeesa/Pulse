@@ -1,16 +1,23 @@
-%p#notice= notice
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "List", users_path
+      %li= link_to "New", new_user_path
+      %li.active= link_to "Show", user_path
+  .content
+    .inner
+      %p
+        %b Email:
+        = @user.email
+      %p
+        %b Allowed to login:
+        = @user.allowed_to_login
+      %p
+        %b Groups:
+        = @user.groups.map(&:name).join(', ')
 
-%p
-  %b Email:
-  = @user.email
-%p
-  %b Allowed to login:
-  = @user.allowed_to_login
-%p
-  %b Groups:
-  = @user.groups.map(&:name).join(', ')
-
-= link_to 'Edit', edit_user_path(@user)
-\|
-= link_to 'Back', users_path
+      %br/
+      .wat-cf
+        #{ link_to raw("#{image_tag("web-app-theme/application_edit.png", :alt => t("web-app-theme.edit", :default=> "Edit"))} #{t("web-app-theme.edit", :default=> "Edit")}"), edit_user_path(@user), :class => "button" } 
+        #{ link_to raw("#{image_tag("web-app-theme/cross.png", :alt => t("web-app-theme.delete", :default=> "Delete"))} #{t("web-app-theme.delete", :default => "Delete")}"), user_path(@user), :method => "delete", :class => "button", :confirm => t("web-app-theme.confirm", :default => "Are you sure?") }
 

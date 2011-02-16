@@ -1,15 +1,18 @@
-= form_for @chart do |f|
-  -if @chart.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@chart.errors.count, "error")} prohibited this chart from being saved:"
-      %ul
-        - @chart.errors.full_messages.each do |msg|
-          %li= msg
-
+-if @chart.errors.any?
+  #error_explanation
+    %h2= "#{pluralize(@chart.errors.count, "error")} prohibited this chart from being saved:"
+    %ul
+      - @chart.errors.full_messages.each do |msg|
+        %li= msg
+.group
   - Group.all.each do |group|
-    .field
-      = check_box_tag 'chart[group_ids][]', group.id, @chart.groups.include?(group), :id => "chart_group_#{group.id}"
-      = label_tag "chart_group_#{group.id}", group.name
+    = check_box_tag 'chart[group_ids][]', group.id, @chart.groups.include?(group), :id => "chart_group_#{group.id}"
+    = label_tag "chart_group_#{group.id}", group.name
+    %br/
+        
+.group.navform.wat-cf
+  %button.button{:type => 'submit'}
+    = image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")
+    = t("web-app-theme.save", :default => "Save")
+  = link_to raw("#{image_tag("web-app-theme/cross.png", :alt => "#{t("web-app-theme.cancel", :default => "Cancel")}")} #{t("web-app-theme.cancel", :default => "Cancel")}"), charts_path, :class => "button"
 
-  .actions
-    = f.submit 'Save'

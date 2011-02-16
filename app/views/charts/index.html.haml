@@ -1,13 +1,21 @@
-%h1 Listing charts
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "List", charts_path
+  .content
+    %h2.title Listing charts
+    .inner
+      %table.table
+        %tr
+          %th.first Name
+          %th Groups
+          %th.last &nbsp;
+        - @charts.each do |chart|
+          %tr{:class => cycle("odd", "even")}
+            %td= chart.name
+            %td= chart.groups.map(&:name).join(', ')
+            %td.last
+              = link_to "Edit", edit_chart_path(chart)
+      .actions-bar.wat-cf
+        .actions
 
-%table
-  %tr
-    %th Name
-    %th Groups
-    %th
-
-  - @charts.each do |chart|
-    %tr
-      %td= chart.name
-      %td= chart.groups.map(&:name).join(', ')
-      %td= link_to 'Edit', edit_chart_path(chart)

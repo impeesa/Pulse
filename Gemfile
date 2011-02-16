@@ -23,3 +23,8 @@ end
 group :production do
   gem 'mysql2'
 end
+
+# These settings is used to add theme - Giang Nguyen, ndgiang84@gmail.com
+group :development do
+  gem 'web-app-theme-rails'
+end

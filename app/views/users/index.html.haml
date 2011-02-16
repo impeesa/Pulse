@@ -1,23 +1,27 @@
-%h1 Listing users
-
-%table
-  %tr
-    %th Email
-    %th Allowed to login
-    %th Groups
-    %th
-    %th
-    %th
-
-  - @users.each do |user|
-    %tr
-      %td= mail_to user.email
-      %td= user.allowed_to_login
-      %td= user.groups.map(&:name).join(', ')
-      %td= link_to 'Show', user
-      %td= link_to 'Edit', edit_user_path(user)
-      %td= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete
-
-%br
-
-= link_to 'New User', new_user_path
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first.active= link_to "List", users_path
+      %li= link_to "New", new_user_path
+  .content
+    %h2.title Listing users
+    .inner
+      %table.table
+        %tr
+          %th.first Email
+          %th Allowed to login
+          %th Groups
+          %th.last &nbsp;
+        - @users.each do |user|
+          %tr{:class => cycle("odd", "even")}
+            %td= mail_to user.email
+            %td= user.allowed_to_login
+            %td= user.groups.map(&:name).join(', ')
+            %td.last
+              = link_to "Show", user
+              |
+              = link_to "Edit", edit_user_path(user)
+              |
+              = link_to "Destroy", user, :confirm => "Are you sure?", :method => :delete
+      .actions-bar.wat-cf
+        .actions
