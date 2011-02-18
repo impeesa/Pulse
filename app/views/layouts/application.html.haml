@@ -47,6 +47,13 @@
               %li= link_to "Groups", groups_path
               %li= link_to "Users", users_path
               %li.active= link_to "Account details", account_details_path
+          #sub-navigation
+            %ul.wat-cf
+              %li wat-cf
+              %li wat-cf 2
+            %ul.title
+              %li title 
+              %li title 2
 
         #user-navigation
           %ul.wat-cf
@@ -55,9 +62,6 @@
                 #loginInfo= "Logged in as #{current_user.email},"
               %li
                 %a{ :href => "/logout", :class => "logout" } Logout
-        <div id="main-navigation">
-        <ul class="wat-cf"></ul>
-        </div>
       #wrapper.wat-cf
         .flash
           - flash.each do |type, message|
