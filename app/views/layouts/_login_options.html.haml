@@ -1,0 +1,20 @@
+#login-wrapper
+  or
+  #local-login
+    = form_tag log_in_path do 
+      %table
+        %tr
+          %th Email
+          %td= text_field_tag :email, nil, :size => 30
+        %tr 
+          %th Password
+          %td= password_field_tag :password, nil, :size => 30
+        %tr
+          %th{ :style => "border:none; background-color:#ebebeb" }
+          %td{ :style => "border:none" }
+            = link_to "Login", "#", :class => "button", :id => 'local-login'
+
+  #google-login
+    = link_to "Login with Google account", google_login_path, :class => "button"
+
+  .clear
