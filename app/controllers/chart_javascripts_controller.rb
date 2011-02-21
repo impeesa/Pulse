@@ -15,7 +15,8 @@ class ChartJavascriptsController < ApplicationController
     domestic_pycm_actual = pycm_actual.classes('Domestic').sum(:Value)
     international_pycm_actual = pycm_actual.classes('International').sum(:Value)
     @prior_year = [domestic_pycm_actual, international_pycm_actual]
-    render :template => 'chart_javascripts/equal_sales_chart.js.erb'
+    chart = Chart.find_by_name('equal_sales_current_month')
+    render :template => 'chart_javascripts/equal_sales_chart.js.erb', :locals => { :width => chart.width, :height => chart.height }
   end
 
   def equal_sales_year_to_date
@@ -33,7 +34,8 @@ class ChartJavascriptsController < ApplicationController
     domestic_pycm_actual = pycm_actual.classes('Domestic').sum(:Value)
     international_pycm_actual = pycm_actual.classes('International').sum(:Value)
     @prior_year = [domestic_pycm_actual, international_pycm_actual]
-    render :template => 'chart_javascripts/equal_sales_chart.js.erb'
+    chart = Chart.find_by_name('equal_sales_year_to_date')
+    render :template => 'chart_javascripts/equal_sales_chart.js.erb', :locals => { :width => chart.width, :height => chart.height }
   end
 
   def line_of_credit
@@ -41,6 +43,7 @@ class ChartJavascriptsController < ApplicationController
     @balance = balance_sheet_cash_line_of_credit_current_month.types('Actual').sum(:Value)
     @line_of_credit = balance_sheet_cash_line_of_credit_current_month.types('Plan').sum(:Value)
     @available = @line_of_credit - @balance
+    chart = Chart.find_by_name('line_of_credit')
+    @width, @height = chart.width, chart.height
   end
-
 end

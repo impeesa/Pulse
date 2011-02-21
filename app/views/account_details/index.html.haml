@@ -14,7 +14,10 @@
             - else
               = link_to(filter.humanize, { :action => filter }, :class => "button", :style => "color:#0077BB")
           - else
-            = link_to(filter.humanize, { :action => filter }, :class => "button")
+            - if filter == "index"
+              = link_to("None", { :action => filter }, :class => "button")
+            - else
+              = link_to(filter.humanize, { :action => filter }, :class => "button")
           
     .clear
 

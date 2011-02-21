@@ -3,7 +3,8 @@ $(document).ready(function() {
     chart: {
       renderTo: '<%= action_name %>',
       defaultSeriesType: 'column',
-      width: 600
+      width: <%= width -%>,
+      height: <%= height -%>
     },
     title: {
       text: '<%= action_name.humanize.titleize %>',

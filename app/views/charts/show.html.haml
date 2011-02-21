@@ -2,7 +2,6 @@
   .secondary-navigation
     %ul.wat-cf
       %li.first= link_to "List", charts_path
-      %li= link_to "New", new_chart_path
       %li.active= link_to "Show", chart_path
   .content
     .inner
@@ -12,6 +11,12 @@
       %p
         %b Groups:
         = @chart.groups.map(&:name).join(', ')
+      %p
+        %b Width:
+        = @chart.width
+      %p
+        %b Height:
+        = @chart.height
 
       %br/
       .wat-cf

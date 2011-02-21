@@ -9,7 +9,19 @@
     = check_box_tag 'chart[group_ids][]', group.id, @chart.groups.include?(group), :id => "chart_group_#{group.id}"
     = label_tag "chart_group_#{group.id}", group.name
     %br/
-        
+
+.group
+  = f.label :width, :class => "label"
+  = f.text_field :width, :'default-width' => Chart::DEFAULT_WIDTH[@chart.name]
+
+.group
+  = f.label :height, :class => "label"
+  = f.text_field :height, :'default-height' => Chart::DEFAULT_HEIGHT[@chart.name]
+
+- unless @chart.new_record?
+  = link_to "Use", "#", :id => 'reset-width-height'
+  default width, height
+
 .group.navform.wat-cf
   %button.button{:type => 'submit'}
     = image_tag("web-app-theme/tick.png", :alt => "#{t("web-app-theme.save", :default => "Save")}")

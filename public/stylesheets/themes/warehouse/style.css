@@ -156,14 +156,20 @@ input.checkbox {
 #sidebar .block .sidebar-block h4 {
   border-bottom: 1px dotted #aaa;
 }
+
+
 #main-navigation ul li {
   background: #456;
-  border-top: 1px solid #5C738A;
   color: #eee;
+  border-top: 1px solid #5C738A;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
 }
 
+#main-navigation ul li.no-radius {
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
 #main-navigation ul li:hover {
   border-top-color: #7593B0;
   background-color: #576C82 !important;
@@ -171,9 +177,9 @@ input.checkbox {
 }
 
 #main-navigation ul li.active {
-  border-top: 1px solid #fff;
-  background-color: #eee !important;
-  color: #333;
+  border-top-color: #7593B0;
+  background-color: #B5C3CF !important;
+  color: #fff;
 }
 
 #main-navigation ul li a:link, #main-navigation ul li a:visited, #main-navigation ul li a:hover, #main-navigation ul li a:active,

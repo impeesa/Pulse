@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   has_many :authentications, :dependent => :destroy
   has_many :user_groups, :dependent => :destroy
   has_many :groups, :through => :user_groups
@@ -31,4 +30,43 @@ class User < ActiveRecord::Base
 
   class Locked < StandardError; end
 
+  def self.authenticate(email, password)
+    user = User.find_by_email(email)
+
+    if user
+      expected_password = encrypted_password(password, user.salt)
+      user = nil unless user.hashed_password == expected_password
+    end
+
+    user
+  end
+
+  def self.set_password(user_id, new_password)
+    user = User.find_by_id(user_id)
+    user.password = new_password
+    user.hashed_password = encrypted_password(new_password, user.salt)
+    user.save
+  end
+
+  def password
+    @password
+  end
+            
+  def password=(pwd)
+    @password = pwd
+    return if pwd.blank?
+    create_new_salt
+    self.hashed_password = User.encrypted_password(self.password, self.salt)
+  end
+
+  private
+
+  def create_new_salt
+    self.salt = self.object_id.to_s + rand.to_s
+  end
+              
+  def self.encrypted_password(password,salt)
+    string_to_hash = password + "pulse" + salt
+    Digest::SHA1.hexdigest(string_to_hash)
+  end
 end

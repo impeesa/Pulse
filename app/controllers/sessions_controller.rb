@@ -12,6 +12,20 @@ class SessionsController < ApplicationController
     redirect_to root_path, :notice => 'Bye!'
   end
 
+  def new
+    user = User.authenticate(params[:email], params[:password])
+    if user
+      login user
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+    rescue User::NotFound => ex
+      render_user_not_found
+    rescue User::Locked
+      render_user_locked
+  end
+
   private
 
   # User must exist at this point to log in.

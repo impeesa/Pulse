@@ -84,4 +84,13 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+  def set_password
+    if request.post?
+      User.set_password(params[:id], params[:password])
+      redirect_to users_path, :notice => 'User was successfully set password.'
+    else
+      @user = User.find_by_id(params[:id])
+    end
+  end
 end

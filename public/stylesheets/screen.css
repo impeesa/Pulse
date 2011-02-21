@@ -78,3 +78,24 @@ ul#account-detail-filters li {
 #loginInfo {
   color: #fff;
 }
+
+#login-wrapper {
+  width: 570px;
+  margin: 20px auto;
+}
+
+#login-wrapper #local-login {
+  float: left;
+}
+
+#login-wrapper #google-login {
+  float: right;
+}
+
+.clear {
+  clear: both;
+}
+
+#equal_sales_year_to_date, #equal_sales_current_month, #line_of_credit {
+  float: left;
+}

@@ -9,15 +9,23 @@
       %table.table
         %tr
           %th.first Email
+          %th Password
           %th Allowed to login
           %th Groups
-          %th.last &nbsp;
+          %th.last{:colspan => "2"} &nbsp;
         - @users.each do |user|
           %tr{:class => cycle("odd", "even")}
             %td= mail_to user.email
+            %td
+              - if user.hashed_password == nil
+                N/A
+              - else
+                not shown
             %td= user.allowed_to_login
             %td= user.groups.map(&:name).join(', ')
-            %td.last
+            %td.last{:colspan => "2"}
+              = link_to "Set password", set_password_path(user)
+              |
               = link_to "Show", user
               |
               = link_to "Edit", edit_user_path(user)

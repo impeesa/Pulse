@@ -83,4 +83,8 @@ class ChartsController < ApplicationController
     end
   end
 
+  def default_size
+    Chart.reset_all_size
+    redirect_to charts_path, :notice => "Default size reset."
+  end
 end
