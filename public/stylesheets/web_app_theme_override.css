@@ -1,1 +1,17 @@
 /* Override here any style definide by web-app-theme */
+
+#sub-navigation {
+  background-color: #eee;
+  display: block;
+}
+
+#sub-navigation .title {
+  display: block;
+  color: red;
+  background-color: #EAEAEA;
+}
+
+#sub-navigation ul li {
+  color: red;
+}
+

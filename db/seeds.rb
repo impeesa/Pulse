@@ -7,6 +7,8 @@ end
 
 User.make_admin
 
+Admin.make_default_settings
+
 Chart.names.each do |name|
   Chart.make :name => name
 end

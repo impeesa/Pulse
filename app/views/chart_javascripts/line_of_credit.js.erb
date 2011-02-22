@@ -4,7 +4,8 @@ $(document).ready(function() {
     chart: {
       renderTo: '<%= action_name %>',
       defaultSeriesType: 'pie',
-      width: 500
+      height: <%= @height -%>,
+      width: <%= @width -%>
     },
     title: {
       text: '<%= action_name.humanize.titleize %>'

@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-
-  before_filter :get_current_user
+  before_filter :set_site_infor, :get_current_user
 
   protect_from_forgery
   helper_method :current_user, :signed_in?
@@ -22,6 +21,7 @@ class ApplicationController < ActionController::Base
   def get_current_user
     if session[:user_id]
       @current_user = User.find_authorized_by_id_or_email!(session[:user_id])
+    #@current_user = User.find_authorized_by_id_or_email!(1)
     else
       render_layout_only 'Please login.'
     end
@@ -50,4 +50,8 @@ class ApplicationController < ActionController::Base
     render :nothing => true, :layout => true
   end
 
+  def set_site_infor
+    @site_name =  Admin.get_site_name
+    @footer_text = Admin.get_footer_text
+  end
 end

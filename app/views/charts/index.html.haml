@@ -9,13 +9,19 @@
         %tr
           %th.first Name
           %th Groups
+          %th Width
+          %th Height
           %th.last &nbsp;
         - @charts.each do |chart|
           %tr{:class => cycle("odd", "even")}
             %td= chart.name
             %td= chart.groups.map(&:name).join(', ')
+            %td= chart.width
+            %td= chart.height
             %td.last
               = link_to "Edit", edit_chart_path(chart)
       .actions-bar.wat-cf
         .actions
+      = link_to "Reset all", default_size_path
+      width, height to default (best fit 1024x768)
 
