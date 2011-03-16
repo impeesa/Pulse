@@ -45,7 +45,7 @@ $(document).ready(function() {
       },
       {
         type: 'spline',
-        marker: {symbol: 'triangle'},
+        marker: {symbol: 'triangle', radius: 6},
         name: 'Prior Year',
         data: <%= @prior_year.inspect.html_safe %>
       }
