@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.0'
 gem 'omniauth', '0.1.4'
-gem 'fastercsv', '1.5.3'
+#gem 'fastercsv', '1.5.3'
 gem 'haml', '>3'
 
 group :test do

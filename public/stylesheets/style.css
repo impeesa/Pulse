@@ -1,0 +1,19 @@
+fieldset {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+#site_name_footer {
+  width: 332px;
+  float: left;
+}
+
+#permissions {
+  width: 267px;
+  float: left;
+}
+
+.clear {
+  clear: both;
+}

@@ -30,6 +30,18 @@ class User < ActiveRecord::Base
 
   class Locked < StandardError; end
 
+  def can_see_this_tab?(tab_name)
+    groups = self.groups
+    can_see = false
+    groups.each do |group|
+      if group.tabs.map(&:name).include? tab_name  
+        can_see = true
+        break
+      end
+    end
+    can_see
+  end
+
   def self.authenticate(email, password)
     user = User.find_by_email(email)
 
