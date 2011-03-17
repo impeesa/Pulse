@@ -3,4 +3,18 @@
     %ul.wat-cf
       %li.first.active= link_to "Index", results_path
   .content
-    NPS
+    #chart-area
+      chart here
+    
+    #comment-area
+      - for comment in @comments 
+        .comment-item
+          .comment-author
+            %b= comment.contactname
+            says:
+            %br/
+            - date = Date.parse(comment.weekid)
+            .date-time= "#{date.month}/#{date.year}"
+          .comment-box
+            = comment.comment
+      = will_paginate @comments

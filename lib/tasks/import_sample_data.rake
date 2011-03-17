@@ -17,6 +17,13 @@ task :create_menu_tabs_list => :environment do
   puts "created menu tabs list."
 end
 
+desc 'import sample comments'
+task :import_sample_comments => :environment do
+  puts "importing..."
+  import_sample_comments
+  puts "imported sample comments."
+end
+
 desc 'Drop old DB, create new one, run migrate, run seeds, import sample data...'
 task :give_me_everything => :environment do
   puts "Drop old DB, create new one, run migrate, run seeds, import sample data..."
@@ -27,5 +34,6 @@ task :give_me_everything => :environment do
   Rake::Task['import_sample_results'].invoke
   Rake::Task['import_sample_account_details'].invoke
   Rake::Task['create_menu_tabs_list'].invoke
+  Rake::Task['import_sample_comments'].invoke
   puts "Loaded everything."
 end

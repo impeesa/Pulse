@@ -17,3 +17,32 @@ fieldset {
 .clear {
   clear: both;
 }
+
+#comment-area {
+}
+
+#comment-area .comment-item {
+  font-size: small;
+}
+
+#comment-area .comment-item .comment-author {
+  margin-bottom: 5px;
+}
+
+#comment-area .comment-item .comment-author .date-time {
+  font-size: smaller;
+}
+
+#comment-area .comment-item .comment-box {
+  border: 1px solid #999;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 3px;
+  width: 300px;
+  margin-bottom: 15px;
+  background-color: #eee;
+}
+
+.pagination span.disabled, .pagination span.current, .pagination a {
+  font-size: 13px;
+}

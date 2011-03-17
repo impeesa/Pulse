@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316095918) do
+ActiveRecord::Schema.define(:version => 20110316153738) do
 
   create_table "admins", :force => true do |t|
     t.string "site_name"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(:version => 20110316095918) do
     t.datetime "updated_at"
     t.integer  "width"
     t.integer  "height"
+  end
+
+  create_table "comments", :force => true do |t|
+    t.string   "weekid"
+    t.string   "contactname"
+    t.float    "score"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "group_tabs", :force => true do |t|
