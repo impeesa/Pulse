@@ -83,6 +83,9 @@ class ChartsController < ApplicationController
     end
   end
 
+  def trend_line_chart
+  end
+
   def default_size
     Chart.reset_all_size
     redirect_to charts_path, :notice => "Default size reset."

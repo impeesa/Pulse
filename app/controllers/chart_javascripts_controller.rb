@@ -1,4 +1,7 @@
 class ChartJavascriptsController < ApplicationController
+  def trend_line
+    render :template => 'chart_javascripts/trend_line.js.erb'
+  end
 
   def equal_sales_current_month
     @classes = ['Domestic', 'International']

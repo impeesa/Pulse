@@ -3,6 +3,7 @@ class NpsController < ApplicationController
 
   def index
     @comments = Comment.paginate :page => params[:page] || 1, :order => 'created_at DESC', :per_page => 10
+    @chart = Chart.find_by_name('trend_line')
   end
 
   def check_permission

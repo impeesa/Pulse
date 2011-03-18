@@ -4,7 +4,7 @@
       %li.first.active= link_to "Index", results_path
   .content
     #chart-area
-      chart here
+      = chart_placeholder @chart.name
     
     #comment-area
       - for comment in @comments 
