@@ -24,6 +24,13 @@ task :import_sample_comments => :environment do
   puts "imported sample comments."
 end
 
+desc 'import sample scores'
+task :import_sample_scores => :environment do
+  puts "importing scores..."
+  import_sample_scores
+  puts "imported scores."
+end
+
 desc 'Drop old DB, create new one, run migrate, run seeds, import sample data...'
 task :give_me_everything => :environment do
   puts "Drop old DB, create new one, run migrate, run seeds, import sample data..."

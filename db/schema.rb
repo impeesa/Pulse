@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316153738) do
+ActiveRecord::Schema.define(:version => 20110318162351) do
 
   create_table "admins", :force => true do |t|
     t.string "site_name"
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(:version => 20110316153738) do
     t.date     "Period"
     t.float    "Value"
     t.string   "Type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "scores", :force => true do |t|
+    t.string   "week_id"
+    t.float    "nps"
+    t.integer  "score"
+    t.integer  "count"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -45,8 +45,29 @@ def import_sample_comments
         value = value.to_f if h.to_sym == :score
         comment.merge!(h.to_sym => value)
       end
-      puts comment
       Comment.create(comment)
+    end
+  end
+end
+
+def import_sample_scores
+  file = File.open('sample_data/nps_scores.rpt')
+  headers = []
+  file.each_with_index do |line, line_number|
+    if line_number == 0
+      headers = line.chop!.slice(1, line.length).split(/\t/)
+      headers.each { |h| h.downcase! }
+    else
+      values = line.chop!.split(/\t/)
+      record = {}
+      headers.each_with_index do |h, i|
+        value = values[i]
+        value = value.to_f if h.to_sym == :nps
+        value = value.to_i if h.to_sym == :score
+        value = value.to_i if h.to_sym == :count
+        record.merge!(h.to_sym => value)
+      end
+      Score.create(record)
     end
   end
 end

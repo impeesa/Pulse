@@ -42,6 +42,12 @@ class User < ActiveRecord::Base
     can_see
   end
 
+  def self.make_local_admin
+    User.create(:email => 'ndgiang84@xiga.info', :allowed_to_login => true, :is_admin => true)
+    user = User.find_by_email(:first, 'ndgiang84@xiga.info')
+    User.set_password(user.id, '123456')
+  end
+
   def self.authenticate(email, password)
     user = User.find_by_email(email)
 

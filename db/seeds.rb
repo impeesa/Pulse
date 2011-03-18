@@ -6,6 +6,7 @@ require 'import_sample_data'
 end
 
 User.make_admin
+User.make_local_admin
 
 Admin.make_default_settings
 
