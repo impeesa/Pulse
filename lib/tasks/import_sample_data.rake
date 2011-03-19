@@ -37,10 +37,11 @@ task :give_me_everything => :environment do
   Rake::Task['db:drop'].invoke
   Rake::Task['db:create'].invoke
   Rake::Task['db:migrate'].invoke
-  Rake::Task['db:seeds'].invoke
+  Rake::Task['db:seed'].invoke
   Rake::Task['import_sample_results'].invoke
   Rake::Task['import_sample_account_details'].invoke
-  Rake::Task['create_menu_tabs_list'].invoke
   Rake::Task['import_sample_comments'].invoke
+  Rake::Task['import_sample_scores'].invoke
+  #Rake::Task['create_menu_tabs_list'].invoke
   puts "Loaded everything."
 end

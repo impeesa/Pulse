@@ -1,6 +1,6 @@
 class GroupTab < ActiveRecord::Migration
   def self.up
-    create_table :group_tabs do |t|
+    create_table :group_tabs, :id => false do |t|
       t.integer :group_id
       t.integer :tab_id
     end

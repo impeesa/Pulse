@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(:version => 20110318162351) do
     t.datetime "updated_at"
   end
 
-  create_table "group_tabs", :force => true do |t|
+  create_table "group_tabs", :id => false, :force => true do |t|
     t.integer "group_id"
     t.integer "tab_id"
   end
