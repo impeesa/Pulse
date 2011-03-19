@@ -24,10 +24,12 @@ def import_sample_account_details(limit = nil)
 end
 
 def create_menu_tabs_list
-  group_admin_id = Group.find_by_name('Admin').id
+  group_ids = Group.all.collect(&:id)
   ['Results', 'Account details', 'NPS', 'Administrator'].each do |t|
     tab = Tab.create(:name => t)
-    GroupTab.create(:group_id => group_admin_id, :tab_id => tab.id)
+    for group_id in group_ids
+      GroupTab.create(:group_id => group_id, :tab_id => tab.id)
+    end
   end
 end
 
