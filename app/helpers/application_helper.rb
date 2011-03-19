@@ -3,7 +3,7 @@ module ApplicationHelper
     html = ""
     return unless (signed_in?) || (!current_user.nil? && current_user.can_see_this_tab?(display_name))
 
-    if (tab_uri == request.fullpath) or (tab_uri == results_path and request.fullpath == "/")
+    if (tab_uri == request.fullpath.split('?')[0]) or (tab_uri == results_path and request.fullpath == "/")
       html = "<li class='active'><a href='#{tab_uri}'>#{display_name}</a>"
     else
       html = "<li><a href='#{tab_uri}'>#{display_name}</a>"
