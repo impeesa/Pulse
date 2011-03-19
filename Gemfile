@@ -4,7 +4,7 @@ gem 'rails', '3.0.0'
 gem 'omniauth', '0.1.4'
 gem 'fastercsv', '1.5.3'
 gem 'haml', '>3'
-gem 'will_paginate'
+gem 'will_paginate', '3.0.pre'
 
 group :test do
   gem 'webrat', '0.7.2'
