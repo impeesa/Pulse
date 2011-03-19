@@ -6,12 +6,10 @@ fieldset {
 
 #site_name_footer {
   width: 332px;
-  float: left;
 }
 
 #permissions {
-  width: 267px;
-  float: left;
+  margin-bottom: 20px;
 }
 
 .clear {
