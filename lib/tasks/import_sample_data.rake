@@ -42,6 +42,6 @@ task :give_me_everything => :environment do
   Rake::Task['import_sample_account_details'].invoke
   Rake::Task['import_sample_comments'].invoke
   Rake::Task['import_sample_scores'].invoke
-  #Rake::Task['create_menu_tabs_list'].invoke
+  #Rake::Task['create_menu_tabs_list'].invoke # need to run rake create_menu_tabs_list alone, dont know why - Giang NGUYEN.
   puts "Loaded everything."
 end
