@@ -52,7 +52,8 @@ class User < ActiveRecord::Base
     user = User.find_by_email(email)
 
     if user
-      expected_password = encrypted_password(password, user.salt)
+      salt = user.salt || ""
+      expected_password = encrypted_password(password, salt)
       user = nil unless user.hashed_password == expected_password
     end
 
@@ -84,6 +85,8 @@ class User < ActiveRecord::Base
   end
               
   def self.encrypted_password(password,salt)
+    puts password
+    puts salt
     string_to_hash = password + "pulse" + salt
     Digest::SHA1.hexdigest(string_to_hash)
   end
