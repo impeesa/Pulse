@@ -1,4 +1,5 @@
 class ResultsController < ApplicationController
+  before_filter :check_permission
 
   def index
     @charts = current_user.charts
@@ -11,4 +12,7 @@ class ResultsController < ApplicationController
     @types = @results.types_hash
   end
 
+  def check_permission
+    render_layout_only "You don't have permission to view this page" unless current_user.can_see_this_tab?('Results')
+  end
 end

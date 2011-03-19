@@ -1,6 +1,5 @@
 class AccountDetailsController < ApplicationController
-
-  before_filter :load_account_details
+  before_filter :load_account_details, :check_permission
 
   def index
     @account_details = @account_details.by_branch_and_account_number
@@ -37,4 +36,7 @@ class AccountDetailsController < ApplicationController
     end
   end
 
+  def check_permission
+    render_layout_only "You don't have permission to view this page" unless current_user.can_see_this_tab?('Account details')
+  end
 end

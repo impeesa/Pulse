@@ -21,7 +21,6 @@ class ApplicationController < ActionController::Base
   def get_current_user
     if session[:user_id]
       @current_user = User.find_authorized_by_id_or_email!(session[:user_id])
-    #@current_user = User.find_authorized_by_id_or_email!(1)
     else
       render_layout_only 'Please login.'
     end

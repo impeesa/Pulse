@@ -7,7 +7,7 @@ $(function() {
 
   $('#main-nav-menu').ptMenu();
 
-  $('#save-settings').live('click', function() {
+  $('#save-settings, #save-permissions').live('click', function() {
     $(this).closest('form').submit();
   })
 

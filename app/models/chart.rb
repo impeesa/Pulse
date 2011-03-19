@@ -7,7 +7,7 @@ class Chart < ActiveRecord::Base
   has_many :groups, :through => :chart_groups
 
   def self.names
-    @names ||= ['equal_sales_year_to_date', 'equal_sales_current_month', 'line_of_credit'].freeze
+    @names ||= ['equal_sales_year_to_date', 'equal_sales_current_month', 'line_of_credit', 'trend_line'].freeze
   end
 
   validates_presence_of :name

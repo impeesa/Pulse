@@ -3,12 +3,14 @@
 %html
   %head
     %title=raw @site_name
-    = stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/warehouse/style", "screen"
+    = stylesheet_link_tag "web_app_theme", "web_app_theme_override", "themes/warehouse/style", "screen", "style"
     = stylesheet_link_tag 'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/redmond/jquery-ui.css'
+    =# stylesheet_link_tag 'jquery-ui-1.8.9.custom'
     = stylesheet_link_tag 'jquery.ui.potato.menu'
     = javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'
     = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js' 
-    = javascript_include_tag 'jquery.ui.potato.menu'
+    =# javascript_include_tag 'jquery-1.4.2', 'jquery-ui-1.8.9.custom'
+    =# javascript_include_tag 'jquery.ui.potato.menu'
     = javascript_include_tag 'rails', 'highcharts', 'application'
     = csrf_meta_tag
 
@@ -21,52 +23,10 @@
         %h1=raw link_to @site_name, "/"
         #main-navigation
           %ul#main-nav-menu.wat-cf
-            - if controller.controller_name == "results"
-              %li.active= link_to "Results", results_path
-              %li= link_to "Account details", account_details_path
-              %li
-                = link_to "Administrator", "#"
-                %ul
-                  %li.no-radius= link_to "Group", groups_path
-                  %li.no-radius= link_to "Users", users_path
-                  %li.no-radius= link_to "Charts", charts_path
-                  %li.no-radius= link_to "General", admins_path
-            - elsif controller.controller_name == "account_details"
-              %li= link_to "Results", results_path
-              %li.active= link_to "Account details", account_details_path
-              %li
-                = link_to "Administrator", "#"
-                %ul
-                  %li.no-radius= link_to "Group", groups_path
-                  %li.no-radius= link_to "Users", users_path
-                  %li.no-radius= link_to "Charts", charts_path
-                  %li.no-radius= link_to "General", admins_path
-            - elsif ["groups", "users", "charts", "admins"].include? controller.controller_name
-              %li= link_to "Results", results_path
-              %li= link_to "Account details", account_details_path
-              %li
-                = link_to "Administrator", admins_path
-                %ul
-                  - if controller.controller_name == "groups"
-                    %li.no-radius.active= link_to "Group", groups_path
-                    %li.no-radius= link_to "Users", users_path
-                    %li.no-radius= link_to "Charts", charts_path
-                    %li.no-radius= link_to "General", admins_path
-                  - elsif controller.controller_name == "users"
-                    %li.no-radius= link_to "Group", groups_path
-                    %li.no-radius.active= link_to "Users", users_path
-                    %li.no-radius= link_to "Charts", charts_path
-                    %li.no-radius= link_to "General", admins_path
-                  - elsif controller.controller_name == "charts"
-                    %li.no-radius= link_to "Group", groups_path
-                    %li.no-radius= link_to "Users", users_path
-                    %li.no-radius.active= link_to "Charts", charts_path
-                    %li.no-radius= link_to "General", admins_path
-                  - elsif controller.controller_name == "admins"
-                    %li.no-radius= link_to "Group", groups_path
-                    %li.no-radius= link_to "Users", users_path
-                    %li.no-radius= link_to "Charts", charts_path
-                    %li.no-radius.active= link_to "General", admins_path
+            =raw top_tab(results_path, "Results")
+            =raw top_tab(account_details_path, "Account details")
+            =raw top_tab(nps_path, "NPS")
+            =raw top_tab(admins_path, "Administrator")
 
         #user-navigation
           %ul.wat-cf

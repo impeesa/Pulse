@@ -1,0 +1,55 @@
+fieldset {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+#site_name_footer {
+  width: 332px;
+  float: left;
+}
+
+#permissions {
+  width: 267px;
+  float: left;
+}
+
+.clear {
+  clear: both;
+}
+
+#chart-area {
+  width: 800px;
+  margin: 0 auto;
+}
+
+#comment-area {
+  margin-top: 20px;
+}
+
+#comment-area .comment-item {
+  font-size: small;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#comment-area .comment-item .comment-author {
+  margin-bottom: 5px;
+}
+
+#comment-area .comment-item .comment-author .date-time {
+  font-size: smaller;
+}
+
+#comment-area .comment-item .comment-box {
+  border: 1px solid #999;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  padding: 3px;
+  margin-bottom: 15px;
+  background-color: #eee;
+}
+
+.pagination span.disabled, .pagination span.current, .pagination a {
+  font-size: 13px;
+}

@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-
-  before_filter :require_admin
+  before_filter :require_admin, :check_permission
 
   # GET /users
   # GET /users.xml
@@ -92,5 +91,9 @@ class UsersController < ApplicationController
     else
       @user = User.find_by_id(params[:id])
     end
+  end
+
+  def check_permission
+    render_layout_only "You don't have permission to view this page" unless current_user.can_see_this_tab?('Administrator')
   end
 end

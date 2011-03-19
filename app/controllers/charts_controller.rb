@@ -1,5 +1,5 @@
 class ChartsController < ApplicationController
-
+  before_filter :check_permission
   before_filter :require_admin, :except => [:index, :show]
 
   def index
@@ -83,8 +83,15 @@ class ChartsController < ApplicationController
     end
   end
 
+  def trend_line_chart
+  end
+
   def default_size
     Chart.reset_all_size
     redirect_to charts_path, :notice => "Default size reset."
+  end
+
+  def check_permission
+    render_layout_only "You don't have permission to view this page" unless current_user.can_see_this_tab?('Administrator')
   end
 end

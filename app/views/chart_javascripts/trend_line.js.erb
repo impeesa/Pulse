@@ -1,0 +1,49 @@
+var chart;
+$(document).ready(function() {
+  chart = new Highcharts.Chart({
+    chart: {
+      renderTo: 'chart-area',
+      defaultSeriesType: 'line',
+      marginRight: 130,
+      marginBottom: 45
+    },
+    title: {
+      text: 'Trend',
+      x: -20 //center
+    },
+    subtitle: {
+      text: 'Source: IMI',
+      x: -20
+    },
+    xAxis: {
+      categories: <%= @times.inspect.html_safe -%>,
+    },
+    yAxis: {
+      title: {
+        text: 'Score'
+      },
+      plotLines: [{
+        value: 0,
+        width: 1,
+        color: '#808080'
+      }]
+    },
+    tooltip: {
+      formatter: function() {
+      return '<b>'+ this.series.name +'</b><br/>'+ this.x +': '+ this.y +' points';
+      }
+    },
+    legend: {
+      layout: 'vertical',
+      align: 'right',
+      verticalAlign: 'top',
+      x: -10,
+      y: 100,
+      borderWidth: 0
+    },
+    series: [{
+      name: 'IMI Score',
+      data: <%= @scores.inspect.html_safe -%>
+    }]
+  });
+});
