@@ -45,6 +45,7 @@ class User < ActiveRecord::Base
   def self.make_local_admin
     user = User.find_or_create_by_email('ndgiang84@xiga.info')
     user.update_attributes(:allowed_to_login => true, :is_admin => true)
+    Group.all.each { |g| user.groups << g }
     User.set_password(user.id, '123456')
   end
 
