@@ -8,12 +8,8 @@ $(document).ready(function() {
       marginBottom: 45
     },
     title: {
-      text: 'Trend',
+      text: 'Net Promoter Score',
       x: -20 //center
-    },
-    subtitle: {
-      text: 'Source: IMI',
-      x: -20
     },
     xAxis: {
       categories: <%= @times.inspect.html_safe -%>,
@@ -43,7 +39,7 @@ $(document).ready(function() {
     },
     series: [{
       name: 'IMI Score',
-      data: <%= @scores.inspect.html_safe -%>
+      data: <%= @npss.inspect.html_safe -%>
     }]
   });
 });

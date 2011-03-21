@@ -2,13 +2,13 @@ class ChartJavascriptsController < ApplicationController
   def trend_line
     current = Date.current
     start_date = current.prev_year
-    @scores = []
+    @npss = []
     @times = []
     for i in (0..12)
       current_date = start_date.months_since(i)
       @times << "#{current_date.strftime('%b-%y')}"
       record = Score.find_month(current_date)
-      record.nil? ? @scores << 0 : @scores << record.score
+      record.nil? ? @npss << 0 : @npss << record.nps
     end
     render :template => 'chart_javascripts/trend_line.js.erb'
   end
