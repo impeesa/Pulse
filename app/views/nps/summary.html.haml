@@ -1,7 +1,8 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first.active= link_to "Index", results_path
+      %li.first.active= link_to "Summary", nps_summary_path
+      %li.first= link_to "Detail", nps_detail_path 
   .content
     #chart-area
       = chart_placeholder @chart.name
@@ -10,11 +11,13 @@
       - for comment in @comments 
         .comment-item
           .comment-author
-            %b= comment.contactname
-            says:
-            %br/
+            %b= comment.contactname.gsub(',', ' ')
+            ,
+            = comment.accountname.blank? ? "<Account Name>" : comment.accountname
+            = "(#{comment.score} - "
             - date = Date.parse(comment.weekid)
-            .date-time= "#{date.month}/#{date.year}"
+            = "#{date.month}/#{date.year})"
+            says:
           .comment-box
             = comment.comment
       .comment-item

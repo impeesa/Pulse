@@ -3,7 +3,8 @@ Pulse::Application.routes.draw do
   match "admins/save_settings" => "admins#save_settings", :as => "save_settings"
   match "admins/save_permissions" => "admins#save_permissions", :as => "save_permissions"
 
-  match "/nps" => "nps#index"
+  match "/nps" => "nps#summary", :as => "nps_summary"
+  match "/nps/detail" => "nps#detail", :as => "nps_detail"
 
   # This is a workaround.
   # Originally, /auth/google was to be the url for OmniAuth to use.

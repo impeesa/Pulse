@@ -22,7 +22,8 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       @current_user = User.find_authorized_by_id_or_email!(session[:user_id])
     else
-      render_layout_only 'Please login.'
+      flash[:notice] = 'Please login.'
+      render_layout_only
     end
   rescue User::Locked
     render_user_locked
@@ -32,20 +33,23 @@ class ApplicationController < ActionController::Base
 
   def require_admin
     unless @current_user.is_admin?
-      render_layout_only 'You must be an administrator to access this page'
+      flash.now[:error] = 'You must be an administrator to access this page'
+      render_layout_only 
     end
   end
 
   def render_user_locked
-    render_layout_only 'Your account is locked.'
+    flash.now[:error] = 'Your account is locked.'
+    render_layout_only 
   end
 
   def render_user_not_found
-    render_layout_only 'Could not find you. Register with an Administrator.'
+    flash.now[:error] = 'Could not find you. Register with an Administrator.'
+    render_layout_only 
   end
 
   def render_layout_only(msg = nil)
-    flash[:notice] = msg
+    #flash.now[:error] = msg
     render :nothing => true, :layout => true
   end
 

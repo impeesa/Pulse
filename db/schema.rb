@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110318162351) do
+ActiveRecord::Schema.define(:version => 20110331065152) do
 
   create_table "admins", :force => true do |t|
     t.string "site_name"
@@ -43,9 +43,10 @@ ActiveRecord::Schema.define(:version => 20110318162351) do
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "accountname"
   end
 
-  create_table "group_tabs", :id => false, :force => true do |t|
+  create_table "group_tabs", :force => true do |t|
     t.integer "group_id"
     t.integer "tab_id"
   end

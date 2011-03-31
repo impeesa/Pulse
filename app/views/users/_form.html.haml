@@ -13,6 +13,10 @@
   = f.label :allowed_to_login, "Allowed to login", :class => :label, :style => "display:inline"
 
 .group
+  = f.check_box :is_admin, :class => 'check_box_field'
+  = f.label :is_admin, "Is admin", :class => :label, :style => "display:inline"
+
+.group
   - Group.all.each do |group|
     = check_box_tag 'user[group_ids][]', group.id, @user.groups.include?(group), :id => "user_group_#{group.id}"
     = label_tag "user_group_#{group.id}", group.name

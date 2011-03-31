@@ -20,4 +20,10 @@ $(function() {
     $('#chart_height').val(parseInt($('#chart_height').attr('default-height')));
     return false;
   });
+
+  $('input').keyup(function(e) {
+    if (e.keyCode == 13) {
+      $(this).closest('form').submit();
+    }
+  });
 })

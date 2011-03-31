@@ -13,6 +13,9 @@
         %b Allowed to login:
         = @user.allowed_to_login
       %p
+        %b Is admin:
+        = @user.is_admin
+      %p
         %b Groups:
         = @user.groups.map(&:name).join(', ')
 

@@ -1,0 +1,27 @@
+.block
+  .secondary-navigation
+    %ul.wat-cf
+      %li.first= link_to "Summary", nps_summary_path
+      %li.first.active= link_to "Detail", nps_detail_path 
+  .content
+    - unless @comments.blank?
+      %table
+        %caption NPS Result
+        %thead
+          %th ID
+          %th Week_ID
+          %th Account Name
+          %th Contact Name
+          %th Score
+          %th Comments
+          %th Submit Date
+        %tbody
+          - for comment in @comments do
+            %tr
+              %td= comment.id
+              %td= comment.weekid
+              %td= comment.accountname.blank? ? "" : comment.accountname
+              %td= comment.contactname
+              %td= comment.score
+              %td= comment.comment
+              %td= comment.created_at 
