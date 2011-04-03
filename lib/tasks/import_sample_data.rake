@@ -31,6 +31,13 @@ task :import_sample_scores => :environment do
   puts "imported scores."
 end
 
+desc 'import nps detail sample data'
+task :import_nps_detail_sample => :environment do
+  puts "importing nps detail..."
+  import_nps_detail_sample
+  puts "imported nps detail."
+end
+
 desc 'Drop old DB, create new one, run migrate, run seeds, import sample data...'
 task :give_me_everything => :environment do
   puts "Drop old DB, create new one, run migrate, run seeds, import sample data..."
@@ -42,6 +49,7 @@ task :give_me_everything => :environment do
   Rake::Task['import_sample_account_details'].invoke
   Rake::Task['import_sample_comments'].invoke
   Rake::Task['import_sample_scores'].invoke
-  #Rake::Task['create_menu_tabs_list'].invoke # need to run rake create_menu_tabs_list alone, dont know why - Giang NGUYEN.
+  #Rake::Task['create_menu_tabs_list'].invoke # need to run rake create_menu_tabs_list individually, dont know why - Giang NGUYEN.
+  Rake::Task['import_nps_detail_sample'].invoke
   puts "Loaded everything."
 end

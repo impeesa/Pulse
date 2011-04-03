@@ -77,3 +77,33 @@ def import_sample_scores
   end
 end
 
+def import_nps_detail_sample
+  content = ''
+  file = File.open('sample_data/nps_detail_sample.txt')
+  file.each_line { |line| content += line } 
+  headers = content.split(/\r/)[0].split(/\t/).each { |h| h.downcase! }
+  
+  data = ''
+  file = File.open('sample_data/nps_detail_sample.txt')
+  file.each_line { |line| data += line }
+  records = data.split(/\r/)
+  records.shift
+
+  records.each do |line|
+    values = line.split(/\t/)
+    record = {}
+    headers.each_with_index do |h, i|
+      value = values[i]
+      case h.to_sym
+        when :nps_id
+          begin value = value.to_i; rescue; value = ''; end
+        when :score
+          begin value = value.to_f; rescue; value = ''; end
+        when :submitdate
+          begin value = value.to_datetime; rescue; value = ''; end
+      end
+      record.merge!(h.to_sym => value)
+    end
+    Nps.create(record)
+  end
+end

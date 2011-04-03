@@ -4,11 +4,11 @@
       %li.first= link_to "Summary", nps_summary_path
       %li.first.active= link_to "Detail", nps_detail_path 
   .content
-    - unless @comments.blank?
+    - unless @records.blank?
       %table
         %caption NPS Result
         %thead
-          %th ID
+          %th NPS_ID
           %th Week_ID
           %th Account Name
           %th Contact Name
@@ -16,12 +16,12 @@
           %th Comments
           %th Submit Date
         %tbody
-          - for comment in @comments do
+          - for record in @records do
             %tr
-              %td= comment.id
-              %td= comment.weekid
-              %td= comment.accountname.blank? ? "" : comment.accountname
-              %td= comment.contactname
-              %td= comment.score
-              %td= comment.comment
-              %td= comment.created_at 
+              %td= record.nps_id
+              %td= record.week_id.to_date
+              %td= record.accountname
+              %td= record.contactname
+              %td= record.score
+              %td= record.comments
+              %td= record.submitdate

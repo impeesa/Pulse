@@ -42,4 +42,6 @@ $(document).ready(function() {
       data: <%= @npss.inspect.html_safe -%>
     }]
   });
+
+  $($('text')[$('text').length - 1]).remove();
 });

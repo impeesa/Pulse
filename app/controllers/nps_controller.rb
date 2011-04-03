@@ -8,7 +8,7 @@ class NpsController < ApplicationController
 
   def detail
     if current_user.groups.map(&:name).include? "Management"
-      @comments = Comment.all(:order => 'weekid desc, created_at desc')
+      @records = Nps.all(:order => 'week_id DESC, submitdate DESC')
     else 
       flash.now[:error] = "Only Management users have permission to view this page."
     end
