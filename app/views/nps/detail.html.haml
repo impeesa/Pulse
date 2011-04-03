@@ -24,4 +24,4 @@
               %td= record.contactname
               %td= record.score
               %td= record.comments
-              %td= record.submitdate
+              %td= record.submitdate.strftime('%y-%b-%d %H:%M %Z') unless record.submitdate.blank?
