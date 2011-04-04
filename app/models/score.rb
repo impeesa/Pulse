@@ -8,4 +8,8 @@ class Score < ActiveRecord::Base
     end
     return nil
   end
+
+  def self.find_latest_available_month
+    Date.parse(Score.all.map(&:week_id).sort.last)
+  end
 end

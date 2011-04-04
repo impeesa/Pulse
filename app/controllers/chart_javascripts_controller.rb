@@ -1,6 +1,6 @@
 class ChartJavascriptsController < ApplicationController
   def trend_line
-    current = Date.current
+    current = Score.find_latest_available_month
     start_date = current.prev_year
     @npss = []
     @times = []
