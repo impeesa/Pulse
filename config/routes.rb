@@ -19,7 +19,9 @@ Pulse::Application.routes.draw do
   match 'user/set_password/:id' => 'users#set_password', :as => 'set_password'
   match 'user/login' => 'sessions#new', :as => 'log_in'
 
-  get '/results/table' => 'results#table'
+  get '/results/rev_by_div' => 'results#rev_by_div', :as => 'rev_by_div_result'
+  get '/results/rev_by_prod' => 'results#rev_by_prod', :as => 'rev_by_prod_result'
+
   resources :results
 
   resources :account_details do

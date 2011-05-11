@@ -12,6 +12,14 @@ class ResultsController < ApplicationController
     @types = @results.types_hash
   end
 
+  def rev_by_div
+    @charts = []
+  end
+
+  def rev_by_prod
+    @charts = []
+  end
+
   def check_permission
     #render_layout_only "You don't have permission to view this page" unless current_user.can_see_this_tab?('Results')
     render_layout_only unless current_user.can_see_this_tab?('Results')
