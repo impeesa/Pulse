@@ -81,7 +81,8 @@ class ChartJavascriptsController < ApplicationController
   #
 
   def domestic_current_month
-    @items = Result.select('item').map { |i| i.attributes.values }.uniq << 'Total'
+    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    puts @items.inspect
 
     results = Result.sections('Sales').classes('Domestic')
 
@@ -89,7 +90,7 @@ class ChartJavascriptsController < ApplicationController
     cmtd_actual = results.terms('CMTD').types('Actual')
     domestic_cmtd_actuals = []
     for item in @items
-      domestic_cmtd_actuals << cmtd_actual.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_cmtd_actuals << cmtd_actual.items(item).sum(:Value).floor unless item == "Total"
     end
     domestic_cmtd_actuals << domestic_cmtd_actuals.sum
     @actual = domestic_cmtd_actuals
@@ -98,7 +99,7 @@ class ChartJavascriptsController < ApplicationController
     cmtd_plan = results.terms('CMTD').types('Plan')
     domestic_cmtd_plans = []
     for item in @items
-      domestic_cmtd_plans << cmtd_plan.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_cmtd_plans << cmtd_plan.items(item).sum(:Value).floor unless item == "Total"
     end
     domestic_cmtd_plans << domestic_cmtd_plans.sum
     @plan = domestic_cmtd_plans
@@ -107,7 +108,7 @@ class ChartJavascriptsController < ApplicationController
     pycm_actual = results.terms('PYCM').types('Actual')
     domestic_pycm_actuals = []
     for item in @items
-      domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == ["Total"]
     end
     domestic_pycm_actuals << domestic_pycm_actuals.sum
     @prior_year = domestic_pycm_actuals
@@ -117,7 +118,7 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def domestic_current_quarter
-    @items = Result.select('item').map { |i| i.attributes.values }.uniq << 'Total'
+    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
 
     results = Result.sections('Sales').classes('Domestic')
 
@@ -125,7 +126,7 @@ class ChartJavascriptsController < ApplicationController
     cqtd_actual = results.terms('CYQT').types('Actual')
     domestic_cqtd_actuals = []
     for item in @items
-      domestic_cqtd_actuals << cqtd_actual.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_cqtd_actuals << cqtd_actual.items(item).sum(:Value).floor unless item == "Total"
     end
     domestic_cqtd_actuals << domestic_cqtd_actuals.sum
     @actual = domestic_cqtd_actuals
@@ -134,7 +135,7 @@ class ChartJavascriptsController < ApplicationController
     cqtd_plan = results.terms('CYQT').types('Plan')
     domestic_cqtd_plans = []
     for item in @items
-      domestic_cqtd_plans << cqtd_plan.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_cqtd_plans << cqtd_plan.items(item).sum(:Value).floor unless item == "Total"
     end
     domestic_cqtd_plans << domestic_cqtd_plans.sum
     @plan = domestic_cqtd_plans
@@ -143,7 +144,7 @@ class ChartJavascriptsController < ApplicationController
     pyqt_actual = results.terms('PYQT').types('Actual')
     domestic_pyqt_actuals = []
     for item in @items
-      domestic_pyqt_actuals << pyqt_actual.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_pyqt_actuals << pyqt_actual.items(item).sum(:Value).floor unless item == "Total"
     end
     domestic_pyqt_actuals << domestic_pyqt_actuals.sum
     @prior_year = domestic_pyqt_actuals
@@ -153,7 +154,7 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def domestic_current_year
-    @items = Result.select('item').map { |i| i.attributes.values }.uniq << 'Total'
+    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
 
     results = Result.sections('Sales').classes('Domestic')
 
@@ -161,7 +162,7 @@ class ChartJavascriptsController < ApplicationController
     cytd_actual = results.terms('CYTD').types('Actual')
     domestic_cytd_actuals = []
     for item in @items
-      domestic_cytd_actuals << cytd_actual.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_cytd_actuals << cytd_actual.items(item).sum(:Value).floor unless item == "Total"
     end
     domestic_cytd_actuals << domestic_cytd_actuals.sum
     @actual = domestic_cytd_actuals
@@ -170,7 +171,7 @@ class ChartJavascriptsController < ApplicationController
     cytd_plan = results.terms('CYTD').types('Plan')
     domestic_cytd_plans = []
     for item in @items
-      domestic_cytd_plans << cytd_plan.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_cytd_plans << cytd_plan.items(item).sum(:Value).floor unless item == "Total"
     end
     domestic_cytd_plans << domestic_cytd_plans.sum
     @plan = domestic_cytd_plans
@@ -179,7 +180,7 @@ class ChartJavascriptsController < ApplicationController
     pytd_actual = results.terms('PYTD').types('Actual')
     domestic_pytd_actuals = []
     for item in @items
-      domestic_pytd_actuals << pytd_actual.items(item).sum(:Value).floor unless item == 'Total'
+      domestic_pytd_actuals << pytd_actual.items(item).sum(:Value).floor unless item == "Total"
     end
     domestic_pytd_actuals << domestic_pytd_actuals.sum
     @prior_year = domestic_pytd_actuals

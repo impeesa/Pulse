@@ -101,5 +101,6 @@ ul#account-detail-filters li {
 #international_current_month,#international_current_quarter, #international_current_year,
 #wrrs_current_month,#wrrs_current_quarter, #wrrs_current_year
 {
+  overflow: auto;
   /*float: left;*/
 }
