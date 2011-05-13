@@ -19,7 +19,7 @@ class ResultsController < ApplicationController
                        #wrrs_current_quarter
                        #wrrs_current_year
                       #)
-    @charts = Chart.all(:conditions => ["name in (?)", charts_by_div])#.delete_if { |c| !current_user.charts.map(&:name).include? c.name }
+    @charts = Chart.all(:conditions => ["name in (?)", charts_by_div]).delete_if { |c| !current_user.charts.map(&:name).include? c.name }
   end
 
   def rev_by_prod

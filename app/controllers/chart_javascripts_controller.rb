@@ -82,7 +82,6 @@ class ChartJavascriptsController < ApplicationController
 
   def domestic_current_month
     @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
-    puts @items.inspect
 
     results = Result.sections('Sales').classes('Domestic')
 
