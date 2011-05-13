@@ -44,5 +44,5 @@ Pulse::Application.routes.draw do
 
   resources :users
 
-  root :to => "results#index"
+  root :to => "results#rev_by_div"
 end
