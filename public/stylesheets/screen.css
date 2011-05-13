@@ -96,6 +96,10 @@ ul#account-detail-filters li {
   clear: both;
 }
 
-#equal_sales_year_to_date, #equal_sales_current_month, #line_of_credit {
-  float: left;
+#equal_sales_year_to_date, #equal_sales_current_month, #line_of_credit,
+#domestic_current_month,#domestic_current_quarter, #domestic_current_year,
+#international_current_month,#international_current_quarter, #international_current_year,
+#wrrs_current_month,#wrrs_current_quarter, #wrrs_current_year
+{
+  /*float: left;*/
 }

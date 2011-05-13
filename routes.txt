@@ -1,0 +1,55 @@
+(in /Users/gnguyen/mywork/scriptlance/lincohnway/Pulse)
+                      admins        /admins/index(.:format)                 {:action=>"index", :controller=>"admins"}
+               save_settings        /admins/save_settings(.:format)         {:action=>"save_settings", :controller=>"admins"}
+            save_permissions        /admins/save_permissions(.:format)      {:action=>"save_permissions", :controller=>"admins"}
+                 nps_summary        /nps(.:format)                          {:action=>"summary", :controller=>"nps"}
+                  nps_detail        /nps/detail(.:format)                   {:action=>"detail", :controller=>"nps"}
+                 auth_google GET    /auth/google(.:format)                  {:to=>#<Proc:0x000000010399efe0@/Users/gnguyen/.rvm/gems/ruby-1.8.7-p334/gems/actionpack-3.0.0/lib/action_dispatch/routing/mapper.rb:284>}
+   successful_authentication        /auth/:provider/callback(.:format)      {:action=>"create", :controller=>"sessions"}
+                google_login GET    /google_login(.:format)                 {:to=>#<Proc:0x000000010399efe0@/Users/gnguyen/.rvm/gems/ruby-1.8.7-p334/gems/actionpack-3.0.0/lib/action_dispatch/routing/mapper.rb:284>, :action=>"google_login"}
+                      logout GET    /logout(.:format)                       {:action=>"destroy", :controller=>"sessions"}
+                set_password        /user/set_password/:id(.:format)        {:action=>"set_password", :controller=>"users"}
+                      log_in        /user/login(.:format)                   {:action=>"new", :controller=>"sessions"}
+           rev_by_div_result GET    /results/rev_by_div(.:format)           {:action=>"rev_by_div", :controller=>"results"}
+                     results GET    /results(.:format)                      {:action=>"index", :controller=>"results"}
+                     results POST   /results(.:format)                      {:action=>"create", :controller=>"results"}
+                  new_result GET    /results/new(.:format)                  {:action=>"new", :controller=>"results"}
+                 edit_result GET    /results/:id/edit(.:format)             {:action=>"edit", :controller=>"results"}
+                      result GET    /results/:id(.:format)                  {:action=>"show", :controller=>"results"}
+                      result PUT    /results/:id(.:format)                  {:action=>"update", :controller=>"results"}
+                      result DELETE /results/:id(.:format)                  {:action=>"destroy", :controller=>"results"}
+   decreased_account_details GET    /account_details/decreased(.:format)    {:action=>"decreased", :controller=>"account_details"}
+   increased_account_details GET    /account_details/increased(.:format)    {:action=>"increased", :controller=>"account_details"}
+new_accounts_account_details GET    /account_details/new_accounts(.:format) {:action=>"new_accounts", :controller=>"account_details"}
+   summaries_account_details GET    /account_details/summaries(.:format)    {:action=>"summaries", :controller=>"account_details"}
+             account_details GET    /account_details(.:format)              {:action=>"index", :controller=>"account_details"}
+             account_details POST   /account_details(.:format)              {:action=>"create", :controller=>"account_details"}
+          new_account_detail GET    /account_details/new(.:format)          {:action=>"new", :controller=>"account_details"}
+         edit_account_detail GET    /account_details/:id/edit(.:format)     {:action=>"edit", :controller=>"account_details"}
+              account_detail GET    /account_details/:id(.:format)          {:action=>"show", :controller=>"account_details"}
+              account_detail PUT    /account_details/:id(.:format)          {:action=>"update", :controller=>"account_details"}
+              account_detail DELETE /account_details/:id(.:format)          {:action=>"destroy", :controller=>"account_details"}
+                      groups GET    /groups(.:format)                       {:action=>"index", :controller=>"groups"}
+                      groups POST   /groups(.:format)                       {:action=>"create", :controller=>"groups"}
+                   new_group GET    /groups/new(.:format)                   {:action=>"new", :controller=>"groups"}
+                  edit_group GET    /groups/:id/edit(.:format)              {:action=>"edit", :controller=>"groups"}
+                       group GET    /groups/:id(.:format)                   {:action=>"show", :controller=>"groups"}
+                       group PUT    /groups/:id(.:format)                   {:action=>"update", :controller=>"groups"}
+                       group DELETE /groups/:id(.:format)                   {:action=>"destroy", :controller=>"groups"}
+                       users GET    /users(.:format)                        {:action=>"index", :controller=>"users"}
+                       users POST   /users(.:format)                        {:action=>"create", :controller=>"users"}
+                    new_user GET    /users/new(.:format)                    {:action=>"new", :controller=>"users"}
+                   edit_user GET    /users/:id/edit(.:format)               {:action=>"edit", :controller=>"users"}
+                        user GET    /users/:id(.:format)                    {:action=>"show", :controller=>"users"}
+                        user PUT    /users/:id(.:format)                    {:action=>"update", :controller=>"users"}
+                        user DELETE /users/:id(.:format)                    {:action=>"destroy", :controller=>"users"}
+                      charts GET    /charts(.:format)                       {:action=>"index", :controller=>"charts"}
+                      charts POST   /charts(.:format)                       {:action=>"create", :controller=>"charts"}
+                   new_chart GET    /charts/new(.:format)                   {:action=>"new", :controller=>"charts"}
+                  edit_chart GET    /charts/:id/edit(.:format)              {:action=>"edit", :controller=>"charts"}
+                       chart GET    /charts/:id(.:format)                   {:action=>"show", :controller=>"charts"}
+                       chart PUT    /charts/:id(.:format)                   {:action=>"update", :controller=>"charts"}
+                       chart DELETE /charts/:id(.:format)                   {:action=>"destroy", :controller=>"charts"}
+           chart_javascripts        /chart_javascripts/:action(.:format)    {:controller=>"chart_javascripts"}
+                default_size        /chart/default_size(.:format)           {:action=>"default_size", :controller=>"charts"}
+                        root        /(.:format)                             {:action=>"index", :controller=>"results"}

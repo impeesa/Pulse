@@ -5,6 +5,11 @@ task :import_sample_results => :environment do
   import_sample_results
 end
 
+desc 'import sample results with new style charts'
+task :import_sample_results2 => :environment do
+  import_sample_results2
+end
+
 desc 'import sample account_details'
 task :import_sample_account_details => :environment do
   import_sample_account_details

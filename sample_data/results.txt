@@ -1,0 +1,200 @@
+D_ID	Section	Item	Class	Type	Period	Term	Value
+1	Sales	Equal	Domestic	Actual	00:00.0	CMTD	34184.9
+1	Sales	Equal	Domestic	Actual	00:00.0	CYQT	314698.09
+1	Sales	Equal	Domestic	Actual	00:00.0	CYTD	1167159.71
+1	Sales	Equal	Domestic	Actual	00:00.0	PYCM	421011.53
+1	Sales	Equal	Domestic	Actual	00:00.0	PYQT	1189241.99
+1	Sales	Equal	Domestic	Actual	00:00.0	PYTD	1658311.26
+1	Sales	Equal	Domestic	Plan	00:00.0	CMTD	273301.45
+1	Sales	Equal	Domestic	Plan	00:00.0	CYQT	1021610.32
+1	Sales	Equal	Domestic	Plan	00:00.0	CYTD	1376332.98
+2	Sales	Eco-Seal	Domestic	Actual	00:00.0	CMTD	15422.8
+2	Sales	Eco-Seal	Domestic	Actual	00:00.0	CYQT	48749.5
+2	Sales	Eco-Seal	Domestic	Actual	00:00.0	CYTD	99744.75
+2	Sales	Eco-Seal	Domestic	Actual	00:00.0	PYCM	15161.06
+2	Sales	Eco-Seal	Domestic	Actual	00:00.0	PYQT	37013.83
+2	Sales	Eco-Seal	Domestic	Actual	00:00.0	PYTD	68097.71
+2	Sales	Eco-Seal	Domestic	Plan	00:00.0	CMTD	140701.84
+2	Sales	Eco-Seal	Domestic	Plan	00:00.0	CYQT	422105.52
+2	Sales	Eco-Seal	Domestic	Plan	00:00.0	CYTD	703509.2
+3	Sales	Equal	Domestic	Actual	00:00.0	PYTD	-21.44
+3	Sales	STS	Domestic	Actual	00:00.0	CMTD	9135.1
+3	Sales	STS	Domestic	Actual	00:00.0	CYQT	102896.34
+3	Sales	STS	Domestic	Actual	00:00.0	CYTD	380614.74
+3	Sales	STS	Domestic	Actual	00:00.0	PYCM	80001.62
+3	Sales	STS	Domestic	Actual	00:00.0	PYQT	280926.68
+3	Sales	STS	Domestic	Actual	00:00.0	PYTD	359235.36
+3	Sales	STS	Domestic	Plan	00:00.0	CMTD	60078.62
+3	Sales	STS	Domestic	Plan	00:00.0	CYQT	225015.09
+3	Sales	STS	Domestic	Plan	00:00.0	CYTD	280305.64
+4	Sales	Tire Paint	Domestic	Actual	00:00.0	CYQT	13278.05
+4	Sales	Tire Paint	Domestic	Actual	00:00.0	CYTD	39823.1
+4	Sales	Tire Paint	Domestic	Actual	00:00.0	PYCM	9852.25
+4	Sales	Tire Paint	Domestic	Actual	00:00.0	PYQT	44676.06
+4	Sales	Tire Paint	Domestic	Actual	00:00.0	PYTD	75893.64
+4	Sales	Tire Paint	Domestic	Plan	00:00.0	CMTD	10443.37
+4	Sales	Tire Paint	Domestic	Plan	00:00.0	CYQT	49395.43
+4	Sales	Tire Paint	Domestic	Plan	00:00.0	CYTD	82486.04
+5	Sales	Check Point	Domestic	Actual	00:00.0	CMTD	6002
+5	Sales	Check Point	Domestic	Actual	00:00.0	CYQT	8077
+5	Sales	Check Point	Domestic	Actual	00:00.0	CYTD	31789.9
+5	Sales	Check Point	Domestic	Plan	00:00.0	CMTD	12500
+5	Sales	Check Point	Domestic	Plan	00:00.0	CYQT	37500
+5	Sales	Check Point	Domestic	Plan	00:00.0	CYTD	62500
+6	Sales	Air Flex	Domestic	Actual	00:00.0	CYQT	7841
+6	Sales	Air Flex	Domestic	Actual	00:00.0	CYTD	15787.25
+7	Sales	Air Lock	Domestic	Actual	00:00.0	CMTD	119.2
+7	Sales	Air Lock	Domestic	Actual	00:00.0	CYQT	2208.66
+7	Sales	Air Lock	Domestic	Actual	00:00.0	CYTD	5413.97
+7	Sales	Air Lock	Domestic	Actual	00:00.0	PYCM	1690.18
+7	Sales	Air Lock	Domestic	Actual	00:00.0	PYQT	4135
+7	Sales	Air Lock	Domestic	Actual	00:00.0	PYTD	6062.14
+7	Sales	Air Lock	Domestic	Plan	00:00.0	CMTD	1909.9
+7	Sales	Air Lock	Domestic	Plan	00:00.0	CYQT	4672.53
+7	Sales	Air Lock	Domestic	Plan	00:00.0	CYTD	6850.19
+8	Sales	Audit Tools	Domestic	Actual	00:00.0	CYQT	294
+8	Sales	Audit Tools	Domestic	Actual	00:00.0	CYTD	294
+8	Sales	Audit Tools	Domestic	Plan	00:00.0	CYTD	0
+9	Sales	Block	Domestic	Actual	00:00.0	CYQT	1492.68
+9	Sales	Block	Domestic	Actual	00:00.0	CYTD	7035.83
+9	Sales	Block	Domestic	Actual	00:00.0	PYCM	1459.16
+9	Sales	Block	Domestic	Actual	00:00.0	PYQT	7964.02
+9	Sales	Block	Domestic	Actual	00:00.0	PYTD	8091.51
+9	Sales	Block	Domestic	Plan	00:00.0	CMTD	1648.84
+9	Sales	Block	Domestic	Plan	00:00.0	CYQT	8999.3
+9	Sales	Block	Domestic	Plan	00:00.0	CYTD	9143.37
+10	Sales	Equal Motorcycle	Domestic	Actual	00:00.0	CYQT	129.8
+10	Sales	Equal Motorcycle	Domestic	Actual	00:00.0	CYTD	2492.25
+10	Sales	Equal Motorcycle	Domestic	Actual	00:00.0	PYQT	3285.75
+10	Sales	Equal Motorcycle	Domestic	Actual	00:00.0	PYTD	4032
+10	Sales	Equal Motorcycle	Domestic	Plan	00:00.0	CYQT	3712.89
+10	Sales	Equal Motorcycle	Domestic	Plan	00:00.0	CYTD	4556.16
+11	Sales	Valve Core	Domestic	Actual	00:00.0	CMTD	0
+11	Sales	Valve Core	Domestic	Actual	00:00.0	CYQT	310.2
+11	Sales	Valve Core	Domestic	Actual	00:00.0	CYTD	2111.56
+11	Sales	Valve Core	Domestic	Actual	00:00.0	PYCM	147
+11	Sales	Valve Core	Domestic	Actual	00:00.0	PYQT	1368.4
+11	Sales	Valve Core	Domestic	Actual	00:00.0	PYTD	2670.8
+11	Sales	Valve Core	Domestic	Plan	00:00.0	CMTD	166.11
+11	Sales	Valve Core	Domestic	Plan	00:00.0	CYQT	1546.28
+11	Sales	Valve Core	Domestic	Plan	00:00.0	CYTD	3017.99
+13	Sales	Valve Ext	Domestic	Actual	00:00.0	CYQT	240
+13	Sales	Valve Ext	Domestic	Actual	00:00.0	CYTD	66.5
+13	Sales	Valve Ext	Domestic	Actual	00:00.0	PYCM	-10
+13	Sales	Valve Ext	Domestic	Actual	00:00.0	PYQT	467
+13	Sales	Valve Ext	Domestic	Actual	00:00.0	PYTD	693.5
+13	Sales	Valve Ext	Domestic	Plan	00:00.0	CMTD	-11.3
+13	Sales	Valve Ext	Domestic	Plan	00:00.0	CYQT	527.71
+13	Sales	Valve Ext	Domestic	Plan	00:00.0	CYTD	783.65
+14	Sales	Xact Balance	Domestic	Actual	00:00.0	CMTD	583
+14	Sales	Xact Balance	Domestic	Actual	00:00.0	CYQT	6317.06
+14	Sales	Xact Balance	Domestic	Actual	00:00.0	CYTD	51145.68
+14	Sales	Xact Balance	Domestic	Actual	00:00.0	PYCM	6377.33
+14	Sales	Xact Balance	Domestic	Actual	00:00.0	PYQT	23548.03
+14	Sales	Xact Balance	Domestic	Actual	00:00.0	PYTD	50364.96
+14	Sales	Xact Balance	Domestic	Plan	00:00.0	CMTD	5326.17
+14	Sales	Xact Balance	Domestic	Plan	00:00.0	CYQT	19534.82
+14	Sales	Xact Balance	Domestic	Plan	00:00.0	CYTD	40526.58
+101	Balance Sheet	Cash	LOC	Actual	00:00.0	CM	0
+101	Sales	Equal	International	Actual	00:00.0	CYQT	157749.6
+101	Sales	Equal	International	Actual	00:00.0	CYTD	670097.7
+101	Sales	Equal	International	Actual	00:00.0	PYCM	209077.5
+101	Sales	Equal	International	Actual	00:00.0	PYQT	409309.04
+101	Sales	Equal	International	Actual	00:00.0	PYTD	540664.9
+101	Sales	Equal	International	Plan	00:00.0	CMTD	319674.03
+101	Sales	Equal	International	Plan	00:00.0	CYQT	544869.2
+101	Sales	Equal	International	Plan	00:00.0	CYTD	739006.62
+102	Balance Sheet	Cash	Deposits	Actual	00:00.0	CM	132841.48
+102	Sales	Xact Balance	International	Actual	00:00.0	CYQT	212.18
+102	Sales	Xact Balance	International	Actual	00:00.0	CYTD	643.22
+102	Sales	Xact Balance	International	Actual	00:00.0	PYCM	-1360
+102	Sales	Xact Balance	International	Actual	00:00.0	PYQT	-839.16
+102	Sales	Xact Balance	International	Actual	00:00.0	PYTD	-17578.12
+102	Sales	Xact Balance	International	Plan	00:00.0	CMTD	-1135.85
+102	Sales	Xact Balance	International	Plan	00:00.0	CYQT	-700.87
+102	Sales	Xact Balance	International	Plan	00:00.0	CYTD	-1161.85
+103	Balance Sheet	Cash	Investments	Actual	00:00.0	CM	0
+103	Sales	Air Lock	International	Actual	00:00.0	CYQT	1007.25
+103	Sales	Air Lock	International	Actual	00:00.0	CYTD	1007.25
+103	Sales	Air Lock	International	Actual	00:00.0	PYCM	96
+103	Sales	Air Lock	International	Actual	00:00.0	PYQT	96
+103	Sales	Air Lock	International	Actual	00:00.0	PYTD	128
+103	Sales	Air Lock	International	Plan	00:00.0	CMTD	98.88
+103	Sales	Air Lock	International	Plan	00:00.0	CYQT	98.88
+103	Sales	Air Lock	International	Plan	00:00.0	CYTD	131.84
+104	Balance Sheet	Cash	OS_Checks	Actual	00:00.0	CM	136014.09
+105	Balance Sheet	Cash	Cash	Actual	00:00.0	CM	195353.47
+105	Sales	Block	International	Actual	00:00.0	PYQT	1002.5
+105	Sales	Block	International	Actual	00:00.0	PYTD	197.5
+105	Sales	Block	International	Plan	00:00.0	CYQT	1032.57
+105	Sales	Block	International	Plan	00:00.0	CYTD	203.42
+109	Sales	Valve Core	International	Actual	00:00.0	CYQT	250
+109	Sales	Valve Core	International	Actual	00:00.0	CYTD	850
+109	Sales	Valve Core	International	Actual	00:00.0	PYCM	50
+109	Sales	Valve Core	International	Actual	00:00.0	PYQT	380
+109	Sales	Valve Core	International	Actual	00:00.0	PYTD	430
+109	Sales	Valve Core	International	Plan	00:00.0	CMTD	51.5
+109	Sales	Valve Core	International	Plan	00:00.0	CYQT	391.4
+109	Sales	Valve Core	International	Plan	00:00.0	CYTD	442.9
+111	Sales	STS	International	Actual	00:00.0	CYQT	12797.8
+111	Sales	STS	International	Actual	00:00.0	CYTD	36791.52
+111	Sales	STS	International	Actual	00:00.0	PYQT	14189.2
+111	Sales	STS	International	Actual	00:00.0	PYTD	9472
+111	Sales	STS	International	Plan	00:00.0	CYQT	15040.55
+111	Sales	STS	International	Plan	00:00.0	CYTD	10040.32
+113	Sales	Tire Paint	International	Actual	00:00.0	CYTD	7897.73
+113	Sales	Tire Paint	International	Actual	00:00.0	PYCM	8362.2
+113	Sales	Tire Paint	International	Actual	00:00.0	PYQT	37110.4
+113	Sales	Tire Paint	International	Actual	00:00.0	PYTD	52964.2
+113	Sales	Tire Paint	International	Plan	00:00.0	CMTD	10149.83
+113	Sales	Tire Paint	International	Plan	00:00.0	CYQT	45043.68
+113	Sales	Tire Paint	International	Plan	00:00.0	CYTD	64286.64
+114	Sales	Valve Ext	International	Actual	00:00.0	CYTD	240
+114	Sales	Valve Ext	International	Actual	00:00.0	PYCM	80
+114	Sales	Valve Ext	International	Actual	00:00.0	PYQT	80
+114	Sales	Valve Ext	International	Actual	00:00.0	PYTD	160
+114	Sales	Valve Ext	International	Plan	00:00.0	CMTD	82.4
+114	Sales	Valve Ext	International	Plan	00:00.0	CYQT	82.4
+114	Sales	Valve Ext	International	Plan	00:00.0	CYTD	164.8
+115	Sales	Wheel Paint	International	Actual	00:00.0	CYTD	12843.14
+115	Sales	Wheel Paint	International	Actual	00:00.0	PYQT	6761.28
+115	Sales	Wheel Paint	International	Actual	00:00.0	PYTD	13522.56
+115	Sales	Wheel Paint	International	Plan	00:00.0	CYQT	8206.67
+115	Sales	Wheel Paint	International	Plan	00:00.0	CYTD	16413.34
+201	Sales	Equipment	WRRS	Actual	00:00.0	CMTD	63424.02
+201	Sales	Equipment	WRRS	Actual	00:00.0	CYQT	169728.45
+201	Sales	Equipment	WRRS	Actual	00:00.0	CYTD	580047.71
+201	Sales	Equipment	WRRS	Actual	00:00.0	PYCM	94618.2
+201	Sales	Equipment	WRRS	Actual	00:00.0	PYQT	333001.14
+201	Sales	Equipment	WRRS	Actual	00:00.0	PYTD	508852.5
+201	Sales	Equipment	WRRS	Plan	00:00.0	CMTD	54796.49
+201	Sales	Equipment	WRRS	Plan	00:00.0	CYQT	181440.65
+201	Sales	Equipment	WRRS	Plan	00:00.0	CYTD	319797.72
+203	Sales	Powder	WRRS	Actual	00:00.0	CMTD	11081.8
+203	Sales	Powder	WRRS	Actual	00:00.0	CYQT	105728.52
+203	Sales	Powder	WRRS	Actual	00:00.0	CYTD	366565.94
+203	Sales	Powder	WRRS	Actual	00:00.0	PYCM	120840.79
+203	Sales	Powder	WRRS	Actual	00:00.0	PYQT	346894.09
+203	Sales	Powder	WRRS	Actual	00:00.0	PYTD	465448.94
+203	Sales	Powder	WRRS	Plan	00:00.0	CMTD	130006.95
+203	Sales	Powder	WRRS	Plan	00:00.0	CYQT	371051.62
+203	Sales	Powder	WRRS	Plan	00:00.0	CYTD	481617.28
+204	Sales	Shot	WRRS	Actual	00:00.0	CMTD	13069.75
+204	Sales	Shot	WRRS	Actual	00:00.0	CYQT	90727.75
+204	Sales	Shot	WRRS	Actual	00:00.0	CYTD	295302.75
+204	Sales	Shot	WRRS	Actual	00:00.0	PYCM	71333
+204	Sales	Shot	WRRS	Actual	00:00.0	PYQT	216379.68
+204	Sales	Shot	WRRS	Actual	00:00.0	PYTD	291807
+204	Sales	Shot	WRRS	Plan	00:00.0	CMTD	86582.26
+204	Sales	Shot	WRRS	Plan	00:00.0	CYQT	262636.39
+204	Sales	Shot	WRRS	Plan	00:00.0	CYTD	354188.23
+206	Sales	Tire Paint	WRRS	Actual	00:00.0	CMTD	1029.69
+206	Sales	Tire Paint	WRRS	Actual	00:00.0	CYQT	37558.46
+206	Sales	Tire Paint	WRRS	Actual	00:00.0	CYTD	121256.12
+206	Sales	Tire Paint	WRRS	Actual	00:00.0	PYCM	19964.04
+206	Sales	Tire Paint	WRRS	Actual	00:00.0	PYQT	60660.2
+206	Sales	Tire Paint	WRRS	Actual	00:00.0	PYTD	96172.57
+206	Sales	Tire Paint	WRRS	Plan	00:00.0	CMTD	24231.86
+206	Sales	Tire Paint	WRRS	Plan	00:00.0	CYQT	79204.91
+206	Sales	Tire Paint	WRRS	Plan	00:00.0	CYTD	122308.95
+1101	Balance Sheet	Cash	LOC	Plan	NULL	CM	1000000

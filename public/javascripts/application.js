@@ -26,4 +26,38 @@ $(function() {
       $(this).closest('form').submit();
     }
   });
+
+  $('#groups_select_all').bind('change', function() {
+    var sa = $(this);
+
+    if (sa.attr('checked') == true) {
+      $.each($('#charts_groups').find('input[type=checkbox]'), function(index, element) {
+        $(element).attr('checked', true);  
+      });
+    } else {
+      $.each($('#charts_groups').find('input[type=checkbox]'), function(index, element) {
+        $(element).attr('checked', false);  
+      });
+    }
+  });
+
+  $('.charts_groups').bind('click', function() {
+    if (all_checked()) {
+      $('#groups_select_all').attr('checked', true);
+    } else {
+      $('#groups_select_all').attr('checked', false);
+    }
+  });
+
+  function all_checked() {
+    all_are_checked = true;
+    $.each($('#charts_groups').find('input[type=checkbox]'), function(index, element) {
+      if ($(element).attr('checked') == false) {
+        all_are_checked = false;
+        return;
+      }
+    });
+    return all_are_checked;
+  }
 })
+

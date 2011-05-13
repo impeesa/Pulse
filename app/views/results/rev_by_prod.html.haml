@@ -1,9 +1,9 @@
 .block
   .secondary-navigation
     %ul.wat-cf
-      %li.first= link_to "Index", results_path
-      %li= link_to "Rev by Div", rev_by_div_result_path
-      %li.last.active= link_to "Rev by Prod", rev_by_prod_result_path
+      %li.first= link_to "Rev by Div", rev_by_div_result_path
+      %li.active= link_to "Rev by Prod", rev_by_prod_result_path
+      %li.last= link_to "Balance Sheet", balance_sheet_result_path
   .content
     - @charts.each do |chart|
       = chart_placeholder chart.name

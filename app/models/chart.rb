@@ -7,7 +7,21 @@ class Chart < ActiveRecord::Base
   has_many :groups, :through => :chart_groups
 
   def self.names
-    @names ||= ['equal_sales_year_to_date', 'equal_sales_current_month', 'line_of_credit', 'trend_line'].freeze
+    chart_names = %w(equal_sales_year_to_date
+                     equal_sales_current_month
+                     line_of_credit
+                     trend_line
+                     domestic_current_month
+                     domestic_current_quarter
+                     domestic_current_year)
+                     #international_current_month
+                     #international_current_quarter
+                     #international_current_year
+                     #wrrs_current_month
+                     #wrrs_current_quarter
+                     #wrrs_current_year
+                    #)
+    @names ||= chart_names.freeze
   end
 
   validates_presence_of :name
@@ -16,13 +30,19 @@ class Chart < ActiveRecord::Base
   DEFAULT_WIDTH = {
     self.names[0] => 473,
     self.names[1] => 473,
-    self.names[2] => 350
+    self.names[2] => 350,
+    self.names[4] => 500,
+    self.names[5] => 500,
+    self.names[6] => 500,
   }
 
   DEFAULT_HEIGHT = {
     self.names[0] => 318,
     self.names[1] => 318,
-    self.names[2] => 350
+    self.names[2] => 350,
+    self.names[4] => 211,
+    self.names[5] => 211,
+    self.names[6] => 211,
   }
 
   def self.reset_all_size
