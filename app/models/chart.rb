@@ -13,14 +13,13 @@ class Chart < ActiveRecord::Base
                      trend_line
                      domestic_current_month
                      domestic_current_quarter
-                     domestic_current_year)
-                     #international_current_month
-                     #international_current_quarter
-                     #international_current_year
-                     #wrrs_current_month
-                     #wrrs_current_quarter
-                     #wrrs_current_year
-                    #)
+                     domestic_current_year
+                     international_current_month
+                     international_current_quarter
+                     international_current_year
+                     wrrs_current_month
+                     wrrs_current_quarter
+                     wrrs_current_year)
     @names ||= chart_names.freeze
   end
 
@@ -34,6 +33,12 @@ class Chart < ActiveRecord::Base
     self.names[4] => 500,
     self.names[5] => 500,
     self.names[6] => 500,
+    self.names[7] => 500,
+    self.names[8] => 500,
+    self.names[9] => 500,
+    self.names[10] => 500,
+    self.names[11] => 500,
+    self.names[12] => 500,
   }
 
   DEFAULT_HEIGHT = {
@@ -43,6 +48,12 @@ class Chart < ActiveRecord::Base
     self.names[4] => 211,
     self.names[5] => 211,
     self.names[6] => 211,
+    self.names[7] => 211,
+    self.names[8] => 211,
+    self.names[9] => 211,
+    self.names[10] => 211,
+    self.names[11] => 211,
+    self.names[12] => 211,
   }
 
   def self.reset_all_size

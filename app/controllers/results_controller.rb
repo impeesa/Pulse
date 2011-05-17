@@ -11,14 +11,13 @@ class ResultsController < ApplicationController
   def rev_by_div
     charts_by_div = %w(domestic_current_month
                        domestic_current_quarter
-                       domestic_current_year)
-                       #international_current_month
-                       #international_current_quarter
-                       #international_current_year
-                       #wrrs_current_month
-                       #wrrs_current_quarter
-                       #wrrs_current_year
-                      #)
+                       domestic_current_year
+                       international_current_month
+                       international_current_quarter
+                       international_current_year
+                       wrrs_current_month
+                       wrrs_current_quarter
+                       wrrs_current_year)
     @charts = Chart.all(:conditions => ["name in (?)", charts_by_div]).delete_if { |c| !current_user.charts.map(&:name).include? c.name }
   end
 

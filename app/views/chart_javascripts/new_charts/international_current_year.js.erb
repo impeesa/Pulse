@@ -1,0 +1,56 @@
+$(document).ready(function() {
+  new Highcharts.Chart({
+    chart: {
+      renderTo: '<%= action_name %>',
+      defaultSeriesType: 'column',
+      width: <%= width -%>,
+      height: <%= height -%>
+    },
+    title: {
+      text: '<%= action_name.humanize.titleize %>',
+    },
+    xAxis: {
+      categories: <%= @items.inspect.html_safe %>
+    },
+    yAxis: {
+      title: ''
+    },
+    legend: {
+      align: 'right',
+      verticalAlign: 'top',
+      layout: 'vertical',
+      y: 100,
+    },
+    plotOptions: {
+      column: {
+        pointPadding: 0
+      },
+      spline: {
+        lineWidth: 0,
+        marker: {
+          radius: 15
+        }
+      }
+    },
+    tooltip: {
+    },
+    series: [
+      {
+        name: 'Actual',
+        data: <%= @actual.inspect.html_safe %>
+      },
+      {
+        name: 'Plan',
+        data: <%= @plan.inspect.html_safe %>
+      },
+      {
+        type: 'spline',
+        marker: {symbol: 'triangle', radius: 6},
+        name: 'Prior Year',
+        data: <%= @prior_year.inspect.html_safe %>
+      }
+    ]
+  })
+
+  $($('text')[$('text').length - 1]).remove();
+})
