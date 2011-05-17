@@ -22,11 +22,13 @@ class ResultsController < ApplicationController
   end
 
   def rev_by_prod
-    @charts = []
+    #count =  Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq.count
+    count = 2
+    @charts = Array.new(count * 3, Chart.find_by_name('product'))
   end
 
   def balance_sheet
-    @charts = Chart.find_by_name('line_of_credit').to_a
+    @charts = [Chart.find_by_name('line_of_credit')]
   end
 
   def check_permission

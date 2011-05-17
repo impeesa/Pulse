@@ -411,4 +411,94 @@ class ChartJavascriptsController < ApplicationController
     chart = Chart.find_by_name('wrrs_current_year')
     render :template => 'chart_javascripts/new_charts/wrrs_current_year.js.erb', :locals => { :width => chart.width, :height => chart.height }
   end
+
+  def product
+    @classes = ['Domestic', 'Inter', 'WRRS', 'Total']
+    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq[0, 2]
+
+    @actuals = []
+    @plans = []
+    @prior_years = []
+    @chart_names = []
+
+    for item in @items
+      # current month version
+      @chart_names << "#{item} - Current Month"
+      results = Result.sections('Sales').items(item)
+
+      ## actual
+      cmtd_actual = results.terms('CMTD').types('Actual')
+      cmtd_actuals = []
+      @classes.each { |klass| cmtd_actuals << cmtd_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+      cmtd_actuals << cmtd_actuals.sum
+      @actuals << cmtd_actuals
+
+      ## plan
+      cmtd_plan = results.terms('CMTD').types('Plan')
+      cmtd_plans = []
+      @classes.each { |klass| cmtd_plans << cmtd_plan.classes(klass).sum(:Value).floor if klass != 'Total' }
+      cmtd_plans << cmtd_plans.sum
+      @plans << cmtd_plans
+
+      ## prior year
+      pycm_actual = results.terms('PYCM').types('Actual')
+      pycm_actuals = []
+      @classes.each { |klass| pycm_actuals << pycm_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+      pycm_actuals << pycm_actuals.sum
+      @prior_years << pycm_actuals
+
+      # current quarter version
+      @chart_names << "#{item} - Current Quarter"
+      results = Result.sections('Sales').items(item)
+
+      ## actual
+      cyqt_actual = results.terms('CYQT').types('Actual')
+      cyqt_actuals = []
+      @classes.each { |klass| cyqt_actuals << cyqt_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+      cyqt_actuals << cyqt_actuals.sum
+      @actuals << cyqt_actuals
+
+      ## plan
+      cyqt_plan = results.terms('CYQT').types('Plan')
+      cyqt_plans = []
+      @classes.each { |klass| cyqt_plans << cyqt_plan.classes(klass).sum(:Value).floor if klass != 'Total' }
+      cyqt_plans << cyqt_plans.sum
+      @plans << cyqt_plans
+
+      ## prior year
+      pyqt_actual = results.terms('PYQT').types('Actual')
+      pyqt_actuals = []
+      @classes.each { |klass| pyqt_actuals << pyqt_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+      pyqt_actuals << pyqt_actuals.sum
+      @prior_years << pyqt_actuals
+
+      # current year version
+      @chart_names << "#{item} - Current Year"
+      results = Result.sections('Sales').items(item)
+
+      ## actual
+      cytd_actual = results.terms('CYTD').types('Actual')
+      cytd_actuals = []
+      @classes.each { |klass| cytd_actuals << cytd_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+      cytd_actuals << cytd_actuals.sum
+      @actuals << cytd_actuals
+
+      ## plan
+      cytd_plan = results.terms('CYTD').types('Plan')
+      cytd_plans = []
+      @classes.each { |klass| cytd_plans << cytd_plan.classes(klass).sum(:Value).floor if klass != 'Total' }
+      cytd_plans << cytd_plans.sum
+      @plans << cytd_plans
+
+      ## prior year
+      pytd_actual = results.terms('PYTD').types('Actual')
+      pytd_actuals = []
+      @classes.each { |klass| pytd_actuals << pytd_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+      pytd_actuals << pytd_actuals.sum
+      @prior_years << pytd_actuals
+    end
+    
+    chart = Chart.find_by_name('product')
+    render :template => 'chart_javascripts/new_charts/products.js.erb', :locals => { :width => chart.width, :height => chart.height }
+  end
 end

@@ -1,16 +1,16 @@
 $(document).ready(function() {
   new Highcharts.Chart({
     chart: {
-      renderTo: '<%= action_name %>',
+      renderTo: '<%= action_name %>-<%= index -%>',
       defaultSeriesType: 'column',
       width: <%= width -%>,
       height: <%= height -%>
     },
     title: {
-      text: '<%= action_name.humanize.titleize %>',
+      text: '<%= chart_name %>',
     },
     xAxis: {
-      categories: <%= @classes.inspect.html_safe %>
+      categories: <%= @classes.inspect.html_safe -%>
     },
     yAxis: {
       title: ''
@@ -37,20 +37,20 @@ $(document).ready(function() {
     series: [
       {
         name: 'Actual',
-        data: <%= @actual.inspect.html_safe %>
+        data: <%= actual.inspect.html_safe %>
       },
       {
         name: 'Plan',
-        data: <%= @plan.inspect.html_safe %>
+        data: <%= plan.inspect.html_safe %>
       },
       {
         type: 'spline',
         marker: {symbol: 'triangle', radius: 6},
         name: 'Prior Year',
-        data: <%= @prior_year.inspect.html_safe %>
+        data: <%= prior_year.inspect.html_safe %>
       }
     ]
   })
 
-  $($('text')[$('text').length - 1]).remove();
+  $($('text', '#<%= action_name %>-<%= index -%>')[$('text', '#<%= action_name %>-<%= index -%>').length - 1]).remove();
 })
