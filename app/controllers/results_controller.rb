@@ -22,8 +22,7 @@ class ResultsController < ApplicationController
   end
 
   def rev_by_prod
-    #count =  Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq.count
-    count = 2
+    count =  Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq.count
     @charts = Array.new(count * 3, Chart.find_by_name('product'))
   end
 

@@ -414,7 +414,7 @@ class ChartJavascriptsController < ApplicationController
 
   def product
     @classes = ['Domestic', 'Inter', 'WRRS', 'Total']
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq[0, 2]
+    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq
 
     @actuals = []
     @plans = []
