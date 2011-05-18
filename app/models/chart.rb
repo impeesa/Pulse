@@ -40,7 +40,7 @@ class Chart < ActiveRecord::Base
     self.names[10] => 500,
     self.names[11] => 500,
     self.names[12] => 500,
-    self.names[13] => 500,
+    self.names[13] => 400,
   }
 
   DEFAULT_HEIGHT = {

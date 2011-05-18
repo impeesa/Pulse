@@ -1,9 +1,13 @@
 module ResultsHelper
 
-  def chart_placeholder(name, index=nil)
+  def chart_placeholder(name, total=nil)
     charts << name
-    if index
-      content_tag :div, nil, :id => "#{name}-#{index}", :style => "float:left"
+    if total
+      chart_divs = ""
+      for index in (0...total)
+        chart_divs << content_tag(:div, nil, :id => "#{name}-#{index}", :style => "float:left")
+      end
+      chart_divs.html_safe
     else
       content_tag :div, nil, :id => name
     end

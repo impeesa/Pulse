@@ -22,8 +22,9 @@ class ResultsController < ApplicationController
   end
 
   def rev_by_prod
-    count =  Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq.count
-    @charts = Array.new(count * 3, Chart.find_by_name('product'))
+    total_products = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq.count
+    @total_charts = total_products * 3
+    @charts = [Chart.find_by_name('product')].delete_if { |c| !current_user.charts.map(&:name).include? c.name }
   end
 
   def balance_sheet
