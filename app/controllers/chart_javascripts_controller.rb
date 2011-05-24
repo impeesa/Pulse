@@ -62,8 +62,6 @@ class ChartJavascriptsController < ApplicationController
     @prior_year = domestic_pycm_actuals
     @items.delete_if { |item| items_to_be_removed.include? item }
 
-    my_debug
-
     chart = Chart.find_by_name('domestic_current_month')
     render :template => 'chart_javascripts/new_charts/domestic_current_month.js.erb', :locals => { :width => chart.width, :height => chart.height }
   end
