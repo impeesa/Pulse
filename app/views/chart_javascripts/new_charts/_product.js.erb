@@ -49,8 +49,9 @@ $(document).ready(function() {
         name: 'Prior Year',
         data: <%= prior_year.inspect.html_safe %>
       }
-    ]
+    ],
+    credits: {
+      enabled: false
+    }
   })
-
-  $($('text', '#<%= action_name %>-<%= index -%>')[$('text', '#<%= action_name %>-<%= index -%>').length - 1]).remove();
 })

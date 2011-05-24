@@ -13,60 +13,6 @@ class ChartJavascriptsController < ApplicationController
     render :template => 'chart_javascripts/trend_line.js.erb'
   end
 
-  def equal_sales_current_month
-    @classes = ['Domestic', 'International']
-
-    results = Result.sections('Sales').items('EQUAL')
-
-    # actual
-    cmtd_actual = results.terms('CMTD').types('Actual')
-    domestic_cmtd_actual = cmtd_actual.classes('Domestic').sum(:Value)
-    international_cmtd_actual = cmtd_actual.classes('International').sum(:Value)
-    @actual = [domestic_cmtd_actual, international_cmtd_actual]
-
-    # plan
-    cmtd_plan = results.terms('CMTD').types('Plan')
-    domestic_cmtd_plan = cmtd_plan.classes('Domestic').sum(:Value)
-    international_cmtd_plan = cmtd_plan.classes('International').sum(:Value)
-    @plan = [domestic_cmtd_plan, international_cmtd_plan]
-
-    # prior year
-    pycm_actual = results.terms('PYCM').types('Actual')
-    domestic_pycm_actual = pycm_actual.classes('Domestic').sum(:Value)
-    international_pycm_actual = pycm_actual.classes('International').sum(:Value)
-    @prior_year = [domestic_pycm_actual, international_pycm_actual]
-
-    chart = Chart.find_by_name('equal_sales_current_month')
-    render :template => 'chart_javascripts/equal_sales_chart.js.erb', :locals => { :width => chart.width, :height => chart.height }
-  end
-
-  def equal_sales_year_to_date
-    @classes = ['Domestic', 'International']
-
-    results = Result.sections('Sales').items('EQUAL')
-
-    # actual
-    cytd_actual = results.terms('CYTD').types('Actual')
-    domestic_cytd_actual = cytd_actual.classes('Domestic').sum(:Value)
-    international_cytd_actual = cytd_actual.classes('International').sum(:Value)
-    @actual = [domestic_cytd_actual, international_cytd_actual]
-
-    # plan
-    cytd_plan = results.terms('CYTD').types('Plan')
-    domestic_cytd_plan = cytd_plan.classes('Domestic').sum(:Value)
-    international_cytd_plan = cytd_plan.classes('International').sum(:Value)
-    @plan = [domestic_cytd_plan, international_cytd_plan]
-
-    # prior year
-    pycm_actual = results.terms('PYTD').types('Actual')
-    domestic_pycm_actual = pycm_actual.classes('Domestic').sum(:Value)
-    international_pycm_actual = pycm_actual.classes('International').sum(:Value)
-    @prior_year = [domestic_pycm_actual, international_pycm_actual]
-
-    chart = Chart.find_by_name('equal_sales_year_to_date')
-    render :template => 'chart_javascripts/equal_sales_chart.js.erb', :locals => { :width => chart.width, :height => chart.height }
-  end
-
   def line_of_credit
     balance_sheet_cash_line_of_credit_current_month = Result.sections('Balance Sheet').items('Cash').classes('LOC').terms('CM')
     @balance = balance_sheet_cash_line_of_credit_current_month.types('Actual').sum(:Value)
@@ -76,41 +22,47 @@ class ChartJavascriptsController < ApplicationController
     @width, @height = chart.width, chart.height
   end
 
+  # 
+  # charts by Devision
+  #
+  def devision
+  end
+
   #
   # charts for Domestic
   #
 
   def domestic_current_month
     @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
-
     results = Result.sections('Sales').classes('Domestic')
 
-    # actual
+    # actual, plan, prior
     cmtd_actual = results.terms('CMTD').types('Actual')
+    cmtd_plan   = results.terms('CMTD').types('Plan')
+    pycm_actual = results.terms('PYCM').types('Actual')
     domestic_cmtd_actuals = []
+    domestic_cmtd_plans   = []
+    domestic_pycm_actuals = []
+    items_to_be_removed   = []
+
     for item in @items
-      domestic_cmtd_actuals << cmtd_actual.items(item).sum(:Value).floor unless item == "Total"
+      if (cmtd_actual.items(item).sum(:Value).floor == 0 and cmtd_plan.items(item).sum(:Value).floor == 0 and pycm_actual.items(item).sum(:Value).floor == 0 and item != "Total")
+        items_to_be_removed << item
+      else
+        domestic_cmtd_actuals << cmtd_actual.items(item).sum(:Value).floor unless item == "Total"
+        domestic_cmtd_plans   << cmtd_plan.items(item).sum(:Value).floor unless item == "Total"
+        domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == "Total"
+      end
     end
     domestic_cmtd_actuals << domestic_cmtd_actuals.sum
-    @actual = domestic_cmtd_actuals
-
-    # plan
-    cmtd_plan = results.terms('CMTD').types('Plan')
-    domestic_cmtd_plans = []
-    for item in @items
-      domestic_cmtd_plans << cmtd_plan.items(item).sum(:Value).floor unless item == "Total"
-    end
-    domestic_cmtd_plans << domestic_cmtd_plans.sum
-    @plan = domestic_cmtd_plans
-
-    # prior year
-    pycm_actual = results.terms('PYCM').types('Actual')
-    domestic_pycm_actuals = []
-    for item in @items
-      domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == ["Total"]
-    end
+    domestic_cmtd_plans   << domestic_cmtd_plans.sum
     domestic_pycm_actuals << domestic_pycm_actuals.sum
+    @actual     = domestic_cmtd_actuals
+    @plan       = domestic_cmtd_plans
     @prior_year = domestic_pycm_actuals
+    @items.delete_if { |item| items_to_be_removed.include? item }
+
+    my_debug
 
     chart = Chart.find_by_name('domestic_current_month')
     render :template => 'chart_javascripts/new_charts/domestic_current_month.js.erb', :locals => { :width => chart.width, :height => chart.height }
@@ -118,12 +70,17 @@ class ChartJavascriptsController < ApplicationController
 
   def domestic_current_quarter
     @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
-
     results = Result.sections('Sales').classes('Domestic')
 
-    # actual
+    # actual, plan, prior
     cqtd_actual = results.terms('CYQT').types('Actual')
+    cqtd_plan = results.terms('CYQT').types('Plan')
+    pyqt_actual = results.terms('PYQT').types('Actual')
     domestic_cqtd_actuals = []
+    domestic_cqtd_plans = []
+    domestic_pyqt_actuals = []
+    items_to_be_removed   = []
+
     for item in @items
       domestic_cqtd_actuals << cqtd_actual.items(item).sum(:Value).floor unless item == "Total"
     end
@@ -131,8 +88,6 @@ class ChartJavascriptsController < ApplicationController
     @actual = domestic_cqtd_actuals
 
     # plan
-    cqtd_plan = results.terms('CYQT').types('Plan')
-    domestic_cqtd_plans = []
     for item in @items
       domestic_cqtd_plans << cqtd_plan.items(item).sum(:Value).floor unless item == "Total"
     end
@@ -140,8 +95,6 @@ class ChartJavascriptsController < ApplicationController
     @plan = domestic_cqtd_plans
 
     # prior year
-    pyqt_actual = results.terms('PYQT').types('Actual')
-    domestic_pyqt_actuals = []
     for item in @items
       domestic_pyqt_actuals << pyqt_actual.items(item).sum(:Value).floor unless item == "Total"
     end
@@ -412,6 +365,9 @@ class ChartJavascriptsController < ApplicationController
     render :template => 'chart_javascripts/new_charts/wrrs_current_year.js.erb', :locals => { :width => chart.width, :height => chart.height }
   end
 
+  #
+  # charts by Product
+  #
   def product
     @classes = ['Domestic', 'Inter', 'WRRS', 'Total']
     @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq
