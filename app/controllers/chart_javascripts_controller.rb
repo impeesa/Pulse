@@ -379,76 +379,70 @@ class ChartJavascriptsController < ApplicationController
       # current month version
       @chart_names << "#{item} - Current Month"
       results = Result.sections('Sales').items(item)
-
-      ## actual
       cmtd_actual = results.terms('CMTD').types('Actual')
-      cmtd_actuals = []
-      @classes.each { |klass| cmtd_actuals << cmtd_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
-      cmtd_actuals << cmtd_actuals.sum
-      @actuals << cmtd_actuals
-
-      ## plan
       cmtd_plan = results.terms('CMTD').types('Plan')
-      cmtd_plans = []
-      @classes.each { |klass| cmtd_plans << cmtd_plan.classes(klass).sum(:Value).floor if klass != 'Total' }
-      cmtd_plans << cmtd_plans.sum
-      @plans << cmtd_plans
-
-      ## prior year
       pycm_actual = results.terms('PYCM').types('Actual')
+      cmtd_actuals = []
+      cmtd_plans = []
       pycm_actuals = []
-      @classes.each { |klass| pycm_actuals << pycm_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+
+      @classes.each do |klass| 
+        cmtd_actuals << cmtd_actual.classes(klass).sum(:Value).floor if klass != 'Total'
+        cmtd_plans << cmtd_plan.classes(klass).sum(:Value).floor if klass != 'Total'
+        pycm_actuals << pycm_actual.classes(klass).sum(:Value).floor if klass != 'Total'
+      end
+
+      cmtd_actuals << cmtd_actuals.sum
+      cmtd_plans << cmtd_plans.sum
       pycm_actuals << pycm_actuals.sum
+      @actuals << cmtd_actuals
+      @plans << cmtd_plans
       @prior_years << pycm_actuals
 
       # current quarter version
       @chart_names << "#{item} - Current Quarter"
       results = Result.sections('Sales').items(item)
-
-      ## actual
       cyqt_actual = results.terms('CYQT').types('Actual')
-      cyqt_actuals = []
-      @classes.each { |klass| cyqt_actuals << cyqt_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
-      cyqt_actuals << cyqt_actuals.sum
-      @actuals << cyqt_actuals
-
-      ## plan
       cyqt_plan = results.terms('CYQT').types('Plan')
-      cyqt_plans = []
-      @classes.each { |klass| cyqt_plans << cyqt_plan.classes(klass).sum(:Value).floor if klass != 'Total' }
-      cyqt_plans << cyqt_plans.sum
-      @plans << cyqt_plans
-
-      ## prior year
       pyqt_actual = results.terms('PYQT').types('Actual')
+      cyqt_actuals = []
+      cyqt_plans = []
       pyqt_actuals = []
-      @classes.each { |klass| pyqt_actuals << pyqt_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+
+      @classes.each do |klass| 
+        cyqt_actuals << cyqt_actual.classes(klass).sum(:Value).floor if klass != 'Total'
+        cyqt_plans << cyqt_plan.classes(klass).sum(:Value).floor if klass != 'Total'
+        pyqt_actuals << pyqt_actual.classes(klass).sum(:Value).floor if klass != 'Total'
+      end
+
+      cyqt_actuals << cyqt_actuals.sum
+      cyqt_plans << cyqt_plans.sum
       pyqt_actuals << pyqt_actuals.sum
+      @actuals << cyqt_actuals
+      @plans << cyqt_plans
       @prior_years << pyqt_actuals
 
       # current year version
       @chart_names << "#{item} - Current Year"
       results = Result.sections('Sales').items(item)
-
-      ## actual
       cytd_actual = results.terms('CYTD').types('Actual')
-      cytd_actuals = []
-      @classes.each { |klass| cytd_actuals << cytd_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
-      cytd_actuals << cytd_actuals.sum
-      @actuals << cytd_actuals
-
-      ## plan
       cytd_plan = results.terms('CYTD').types('Plan')
-      cytd_plans = []
-      @classes.each { |klass| cytd_plans << cytd_plan.classes(klass).sum(:Value).floor if klass != 'Total' }
-      cytd_plans << cytd_plans.sum
-      @plans << cytd_plans
-
-      ## prior year
       pytd_actual = results.terms('PYTD').types('Actual')
+      cytd_actuals = []
+      cytd_plans = []
       pytd_actuals = []
-      @classes.each { |klass| pytd_actuals << pytd_actual.classes(klass).sum(:Value).floor if klass != 'Total' }
+
+      @classes.each do |klass| 
+        cytd_actuals << cytd_actual.classes(klass).sum(:Value).floor if klass != 'Total'
+        cytd_plans << cytd_plan.classes(klass).sum(:Value).floor if klass != 'Total'
+        pytd_actuals << pytd_actual.classes(klass).sum(:Value).floor if klass != 'Total'
+      end
+
+      cytd_actuals << cytd_actuals.sum
+      cytd_plans << cytd_plans.sum
       pytd_actuals << pytd_actuals.sum
+      @actuals << cytd_actuals
+      @plans << cytd_plans
       @prior_years << pytd_actuals
     end
     
