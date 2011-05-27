@@ -25,7 +25,55 @@ class ChartJavascriptsController < ApplicationController
   # 
   # charts by Devision
   #
-  def devision
+  def division
+    @classes = %(Domestic International WRRS)
+    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+
+    @actuals = []
+    @plans = []
+    @prior_years = []
+    @chart_names = []
+
+    for klass in @classes
+      results = Result.sections('Sales').classes(klass)
+
+      # current month
+      @chart_names << "#{klass} - Current Month"
+      # actual, plan, prior
+      cmtd_actual = results.terms('CMTD').types('Actual')
+      cmtd_plan   = results.terms('CMTD').types('Plan')
+      pycm_actual = results.terms('PYCM').types('Actual')
+      cmtd_actuals = []
+      cmtd_plans   = []
+      pycm_actuals = []
+      items_to_be_removed   = []
+
+      for item in @items
+        if (cmtd_actual.items(item).sum(:Value).floor == 0 and cmtd_plan.items(item).sum(:Value).floor == 0 and pycm_actual.items(item).sum(:Value).floor == 0 and item != "Total")
+          items_to_be_removed << item
+        else
+          cmtd_actuals << cmtd_actual.items(item).sum(:Value).floor unless item == "Total"
+          cmtd_plans   << cmtd_plan.items(item).sum(:Value).floor unless item == "Total"
+          pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == "Total"
+        end
+      end
+      cmtd_actuals << cmtd_actuals.sum
+      cmtd_plans   << cmtd_plans.sum
+      pycm_actuals << pycm_actuals.sum
+      @actual     = cmtd_actuals
+      @plan       = cmtd_plans
+      @prior_year = pycm_actuals
+      @items.delete_if { |item| items_to_be_removed.include? item }
+
+      # current quarter
+      @chart_names << "#{klass} - Current Quarter"
+
+      # current year
+      @chart_names << "#{klass} - Current Year"
+    end
+
+    chart = Chart.find_by_name('division')
+    render :template => 'chart_javascripts/new_charts/divisions.js.erb', :locals => { :width => chart.width, :height => chart.height }
   end
 
   #
@@ -36,31 +84,6 @@ class ChartJavascriptsController < ApplicationController
     @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('Domestic')
 
-    # actual, plan, prior
-    cmtd_actual = results.terms('CMTD').types('Actual')
-    cmtd_plan   = results.terms('CMTD').types('Plan')
-    pycm_actual = results.terms('PYCM').types('Actual')
-    domestic_cmtd_actuals = []
-    domestic_cmtd_plans   = []
-    domestic_pycm_actuals = []
-    items_to_be_removed   = []
-
-    for item in @items
-      if (cmtd_actual.items(item).sum(:Value).floor == 0 and cmtd_plan.items(item).sum(:Value).floor == 0 and pycm_actual.items(item).sum(:Value).floor == 0 and item != "Total")
-        items_to_be_removed << item
-      else
-        domestic_cmtd_actuals << cmtd_actual.items(item).sum(:Value).floor unless item == "Total"
-        domestic_cmtd_plans   << cmtd_plan.items(item).sum(:Value).floor unless item == "Total"
-        domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == "Total"
-      end
-    end
-    domestic_cmtd_actuals << domestic_cmtd_actuals.sum
-    domestic_cmtd_plans   << domestic_cmtd_plans.sum
-    domestic_pycm_actuals << domestic_pycm_actuals.sum
-    @actual     = domestic_cmtd_actuals
-    @plan       = domestic_cmtd_plans
-    @prior_year = domestic_pycm_actuals
-    @items.delete_if { |item| items_to_be_removed.include? item }
 
     chart = Chart.find_by_name('domestic_current_month')
     render :template => 'chart_javascripts/new_charts/domestic_current_month.js.erb', :locals => { :width => chart.width, :height => chart.height }
@@ -379,6 +402,7 @@ class ChartJavascriptsController < ApplicationController
       # current month version
       @chart_names << "#{item} - Current Month"
       results = Result.sections('Sales').items(item)
+
       cmtd_actual = results.terms('CMTD').types('Actual')
       cmtd_plan = results.terms('CMTD').types('Plan')
       pycm_actual = results.terms('PYCM').types('Actual')

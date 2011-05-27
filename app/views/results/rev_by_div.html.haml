@@ -6,4 +6,4 @@
       %li.last= link_to "Balance Sheet", balance_sheet_result_path
   .content
     - @charts.each do |chart|
-      = chart_placeholder chart.name
+      = chart_placeholder chart.name, @total_charts
