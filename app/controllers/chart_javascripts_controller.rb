@@ -27,7 +27,7 @@ class ChartJavascriptsController < ApplicationController
   #
 
   def domestic_current_month
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('Domestic')
 
     # actual, plan, prior
@@ -62,7 +62,7 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def domestic_current_quarter
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('Domestic')
 
     # actual, plan, prior
@@ -97,7 +97,7 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def domestic_current_year
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('Domestic')
 
     # actual
@@ -136,7 +136,7 @@ class ChartJavascriptsController < ApplicationController
   #
 
   def international_current_month
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('International')
 
     # actual
@@ -171,7 +171,7 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def international_current_quarter
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('International')
 
     # actual
@@ -206,7 +206,7 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def international_current_year
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('International')
 
     # actual
@@ -245,7 +245,7 @@ class ChartJavascriptsController < ApplicationController
   #
 
   def wrrs_current_month
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('WRRS')
 
     # actual
@@ -280,7 +280,7 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def wrrs_current_quarter
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('WRRS')
 
     # actual
@@ -315,7 +315,7 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def wrrs_current_year
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq << "Total"
     results = Result.sections('Sales').classes('WRRS')
 
     # actual
@@ -354,7 +354,7 @@ class ChartJavascriptsController < ApplicationController
   #
   def product
     @classes = ['Domestic', 'Inter', 'WRRS', 'Total']
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq
 
     @actuals = []
     @plans = []
@@ -437,9 +437,9 @@ class ChartJavascriptsController < ApplicationController
   end
 
   def single_product
-    product = params[:product].strip.titleize
+    product = params[:product].strip
     @classes = ['Domestic', 'Inter', 'WRRS', 'Total']
-    @items = [Result.find(:first, :conditions => ["item = ?", product]).Item]
+    @items = [Result.find(:first, :conditions => ["section = ? and item = ?", 'Sales', product]).Item]
 
     @actuals = []
     @plans = []

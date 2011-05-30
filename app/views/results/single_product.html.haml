@@ -7,7 +7,7 @@
   .content
     .options
       Display: 
-      = select_tag 'product-chart', options_for_select([['All products', 'all']] + @items.map { |i| [i, i.downcase.titleize.gsub(/\s/, '').underscore] }, @product.downcase.titleize.gsub(/\s/, '').underscore)
+      = select_tag 'product-chart', options_for_select([['All products', 'all']] + @items.map { |i| [i, i] }, @product)
     #charts-area
       - @charts.each do |chart|
         = chart_placeholder chart.name, @total_charts

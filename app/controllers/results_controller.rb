@@ -25,7 +25,7 @@ class ResultsController < ApplicationController
     total_products = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq.count
     @total_charts = total_products * 3
     @charts = [Chart.find_by_name('product')].delete_if { |c| !current_user.charts.map(&:name).include? c.name }
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq
   end
 
   def balance_sheet
@@ -41,6 +41,6 @@ class ResultsController < ApplicationController
     @product = params[:product]
     @total_charts = 3
     @charts = [Chart.find_by_name('single_product')].delete_if { |c| !current_user.charts.map(&:name).include? c.name }
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq
   end
 end
