@@ -49,6 +49,9 @@ $(function() {
     }
   });
 
+  $('#product-chart').bind('change', function() {
+  });
+
   function all_checked() {
     all_are_checked = true;
     $.each($('#charts_groups').find('input[type=checkbox]'), function(index, element) {

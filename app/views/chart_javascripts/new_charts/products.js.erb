@@ -1,4 +1,5 @@
-<%- (0...@items.size * 3).each do |index| -%>
+<%#- (0...@items.size * 3).each do |index| -%>
+<%- (0...3).each do |index| -%>
   <%= render :partial => 'chart_javascripts/new_charts/product.js.erb', :locals => { :classes    => @classes,
                                                                                      :actual     => @actuals[index],
                                                                                      :plan       => @plans[index],
