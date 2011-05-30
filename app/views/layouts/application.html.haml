@@ -16,7 +16,7 @@
 
     - if @chart_names.present?
       - @chart_names.each do |chart|
-        %script{:type => 'text/javascript', :src => "chart_javascripts/#{chart}.js"}
+        %script{:type => 'text/javascript', :src => "/chart_javascripts/#{chart}.js?product=#{@product}"}
   %body
     #container
       #header

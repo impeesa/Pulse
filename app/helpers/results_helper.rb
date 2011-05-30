@@ -1,6 +1,7 @@
 module ResultsHelper
   def chart_placeholder(name, total=nil)
     charts << name
+
     if total
       chart_divs = ""
       for index in (0...total)

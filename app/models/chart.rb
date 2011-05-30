@@ -20,7 +20,8 @@ class Chart < ActiveRecord::Base
                      wrrs_current_month
                      wrrs_current_quarter
                      wrrs_current_year
-                     product)
+                     product
+                     single_product)
     @names ||= chart_names.freeze
   end
 
@@ -30,7 +31,7 @@ class Chart < ActiveRecord::Base
   DEFAULT_WIDTH = {
     self.names[0] => 473,
     self.names[1] => 473,
-    self.names[2] => 350,
+    self.names[2] => 370,
     self.names[4] => 500,
     self.names[5] => 500,
     self.names[6] => 500,
@@ -41,6 +42,7 @@ class Chart < ActiveRecord::Base
     self.names[11] => 500,
     self.names[12] => 500,
     self.names[13] => 400,
+    self.names[14] => 400
   }
 
   DEFAULT_HEIGHT = {
@@ -57,6 +59,7 @@ class Chart < ActiveRecord::Base
     self.names[11] => 211,
     self.names[12] => 211,
     self.names[13] => 211,
+    self.names[14] => 211
   }
 
   def self.reset_all_size

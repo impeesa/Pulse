@@ -40,8 +40,9 @@ $(document).ready(function() {
     series: [{
       name: 'IMI Score',
       data: <%= @npss.inspect.html_safe -%>
-    }]
+    }],
+    credits: {
+      enabled: false
+    }
   });
-
-  $($('text')[$('text').length - 1]).remove();
 });

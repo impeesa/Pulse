@@ -25,7 +25,7 @@ class ResultsController < ApplicationController
     total_products = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq.count
     @total_charts = total_products * 3
     @charts = [Chart.find_by_name('product')].delete_if { |c| !current_user.charts.map(&:name).include? c.name }
-    @items = Result.select('item').map { |i| i.attributes.values }.flatten.compact.uniq
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq
   end
 
   def balance_sheet
@@ -35,5 +35,12 @@ class ResultsController < ApplicationController
   def check_permission
     #render_layout_only "You don't have permission to view this page" unless current_user.can_see_this_tab?('Results')
     render_layout_only unless current_user.can_see_this_tab?('Results')
+  end
+
+  def single_product
+    @product = params[:product]
+    @total_charts = 3
+    @charts = [Chart.find_by_name('single_product')].delete_if { |c| !current_user.charts.map(&:name).include? c.name }
+    @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq
   end
 end

@@ -50,6 +50,11 @@ $(function() {
   });
 
   $('#product-chart').bind('change', function() {
+    if ($(this).val() == 'all') {
+      window.location = '/results/rev_by_prod'
+    } else {
+      window.location = '/results/rev_by_prod/' + $(this).val();
+    }
   });
 
   function all_checked() {
