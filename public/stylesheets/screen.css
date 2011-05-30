@@ -104,3 +104,10 @@ ul#account-detail-filters li {
   overflow: auto;
   /*float: left;*/
 }
+
+.options {
+  margin: 20px;
+}
+
+.options #product-chart {
+}

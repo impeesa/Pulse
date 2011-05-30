@@ -1,5 +1,4 @@
 module ResultsHelper
-
   def chart_placeholder(name, total=nil)
     charts << name
     if total
@@ -17,5 +16,4 @@ module ResultsHelper
   def charts
     @chart_names ||= []
   end
-
 end
