@@ -16,7 +16,8 @@ $(document).ready(function() {
         cursor: 'pointer',
         dataLabels: {
           enabled: true,
-          color: 'white',
+          color: 'black',
+          connectorColor: '#000000',
           formatter: function() {
             var percentage = Math.round(this.y / <%= @line_of_credit %> * 100) + '%'
             return this.y + ' (' + percentage + ')'
@@ -30,12 +31,21 @@ $(document).ready(function() {
     series: [{
       name: 'Line of Credit',
       data: [
-        ['Balance', <%= @balance %>],
-        ['Available', <%= @available %>]
+        {
+          name: 'Balance', 
+          y: <%= @balance -%>,
+          color: '#c35f5c'
+        },
+        {
+          name: 'Available', 
+          y: <%= @available -%>,
+          color: '#5e8bc0'
+        }
       ]
-    }]
+    }],
+    credits: {
+      enabled: false
+    }
   });
-
-  $($('text')[$('text').length - 1]).remove();
 });
 

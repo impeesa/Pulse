@@ -31,7 +31,7 @@ class Chart < ActiveRecord::Base
   DEFAULT_WIDTH = {
     self.names[0] => 473,
     self.names[1] => 473,
-    self.names[2] => 350,
+    self.names[2] => 370,
     self.names[4] => 500,
     self.names[5] => 500,
     self.names[6] => 500,
