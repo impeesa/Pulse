@@ -22,12 +22,6 @@ class ChartJavascriptsController < ApplicationController
     @width, @height = chart.width, chart.height
   end
 
-  # 
-  # charts by Devision
-  #
-  def devision
-  end
-
   #
   # charts for Domestic
   #
@@ -61,6 +55,10 @@ class ChartJavascriptsController < ApplicationController
     @plan       = domestic_cmtd_plans
     @prior_year = domestic_pycm_actuals
     @items.delete_if { |item| items_to_be_removed.include? item }
+    puts @items.inspect
+    puts @actual.inspect
+    puts @plan.inspect
+    puts @prior_year.inspect
 
     chart = Chart.find_by_name('domestic_current_month')
     render :template => 'chart_javascripts/new_charts/domestic_current_month.js.erb', :locals => { :width => chart.width, :height => chart.height }
