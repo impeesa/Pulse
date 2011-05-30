@@ -20,12 +20,14 @@ Pulse::Application.routes.draw do
   match 'user/login' => 'sessions#new', :as => 'log_in'
 
   resources :charts
+
   match '/chart_javascripts/:action' => 'chart_javascripts', :as => 'chart_javascripts'
   match '/chart/default_size' => 'charts#default_size', :as => 'default_size'
   match '/results/chart_javascripts/:action' => 'chart_javascripts'
 
   get '/results/rev_by_div' => 'results#rev_by_div', :as => 'rev_by_div_result'
   get '/results/rev_by_prod' => 'results#rev_by_prod', :as => 'rev_by_prod_result'
+  get '/results/rev_by_prod/:product' => 'results#single_product', :as => 'single_product_result'
   get '/results/balance_sheet' => 'results#balance_sheet', :as => 'balance_sheet_result'
   get '/results' => 'results#rev_by_div'
 
