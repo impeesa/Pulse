@@ -154,7 +154,7 @@ class ChartJavascriptsController < ApplicationController
       else
         domestic_cmtd_actuals << cmtd_actual.items(item).sum(:Value).floor unless item == "Total"
         domestic_cmtd_plans << cmtd_plan.items(item).sum(:Value).floor unless item == "Total"
-        domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == ["Total"]
+        domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == "Total"
       end
     end
 
@@ -263,7 +263,7 @@ class ChartJavascriptsController < ApplicationController
       else
         domestic_cmtd_actuals << cmtd_actual.items(item).sum(:Value).floor unless item == "Total"
         domestic_cmtd_plans << cmtd_plan.items(item).sum(:Value).floor unless item == "Total"
-        domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == ["Total"]
+        domestic_pycm_actuals << pycm_actual.items(item).sum(:Value).floor unless item == "Total"
       end
     end
 
