@@ -37,7 +37,7 @@ class Chart < ActiveRecord::Base
     self.names[8] => 500,
     self.names[9] => 500,
     self.names[10] => 500,
-    self.names[11] => 400,
+    self.names[11] => 430,
     self.names[12] => 430
   }
 
