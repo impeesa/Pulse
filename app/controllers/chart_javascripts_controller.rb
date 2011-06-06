@@ -67,7 +67,7 @@ class ChartJavascriptsController < ApplicationController
 
     # actual, plan, prior
     cqtd_actual = results.terms('CYQT').types('Actual')
-    cqtd_plan = results.terms('CYQT').types('Plan')
+    cqtd_plan   = results.terms('CYQT').types('Plan')
     pyqt_actual = results.terms('PYQT').types('Actual')
     domestic_cqtd_actuals = []
     domestic_cqtd_plans   = []
@@ -85,10 +85,10 @@ class ChartJavascriptsController < ApplicationController
     end
 
     domestic_cqtd_actuals << domestic_cqtd_actuals.sum
-    domestic_cqtd_plans << domestic_cqtd_plans.sum
+    domestic_cqtd_plans   << domestic_cqtd_plans.sum
     domestic_pyqt_actuals << domestic_pyqt_actuals.sum
-    @actual = domestic_cqtd_actuals
-    @plan = domestic_cqtd_plans
+    @actual     = domestic_cqtd_actuals
+    @plan       = domestic_cqtd_plans
     @prior_year = domestic_pyqt_actuals
     @items.delete_if { |item| items_to_be_removed.include? item }
 
@@ -353,7 +353,7 @@ class ChartJavascriptsController < ApplicationController
   # charts by Product
   #
   def product
-    @classes = ['Domestic', 'Inter', 'WRRS', 'Total']
+    @classes = ['Domestic', 'International', 'WRRS', 'Total']
     @items = Result.sections('Sales').select('item').map { |i| i.attributes.values }.flatten.compact.uniq
 
     @actuals = []
@@ -438,7 +438,7 @@ class ChartJavascriptsController < ApplicationController
 
   def single_product
     product = params[:product].strip
-    @classes = ['Domestic', 'Inter', 'WRRS', 'Total']
+    @classes = ['Domestic', 'International', 'WRRS', 'Total']
     @items = [Result.find(:first, :conditions => ["section = ? and item = ?", 'Sales', product]).Item]
 
     @actuals = []
