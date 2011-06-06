@@ -29,7 +29,7 @@ class ResultsController < ApplicationController
   end
 
   def balance_sheet
-    @charts = [Chart.find_by_name('line_of_credit')]
+    @charts = [Chart.find_by_name('line_of_credit')].delete_if { |c| !current_user.charts.map(&:name).include? c.name }
   end
 
   def check_permission
