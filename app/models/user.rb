@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   has_many :user_groups, :dependent => :destroy
   has_many :groups, :through => :user_groups
-  has_many :login_trackings, :dependent => :destroy
 
   validates_presence_of :email
   validates_inclusion_of :allowed_to_login, :in => [true, false]
