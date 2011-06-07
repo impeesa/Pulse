@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
   has_many :user_groups, :dependent => :destroy
   has_many :groups, :through => :user_groups
+  has_many :login_trackings, :dependent => :destroy
 
   validates_presence_of :email
   validates_inclusion_of :allowed_to_login, :in => [true, false]
@@ -86,8 +87,6 @@ class User < ActiveRecord::Base
   end
               
   def self.encrypted_password(password,salt)
-    puts password
-    puts salt
     string_to_hash = password + "pulse" + salt
     Digest::SHA1.hexdigest(string_to_hash)
   end

@@ -16,6 +16,7 @@ class ApplicationController < ActionController::Base
 
   def login(user)
     session[:user_id] = user.id
+    LoginTracking.add(user)
   end
 
   def get_current_user
