@@ -18,16 +18,17 @@
       - @chart_names.each do |chart|
         %script{:type => 'text/javascript', :src => "/chart_javascripts/#{chart}.js?product=#{@product}"}
   %body
-    #container
+    #header-wrapper
       #header
-        %h1=raw link_to @site_name, "/"
+        #logo
+          =raw  link_to image_tag("imipulse.png", :alt => 'The IMI pulse')
+
         #main-navigation
           %ul#main-nav-menu.wat-cf
             =raw top_tab(results_path, "Results")
             =raw top_tab(account_details_path, "Account details")
             =raw top_tab(nps_summary_path, "NPS")
             =raw top_tab(admins_path, "Administrator")
-
         #user-navigation
           %ul.wat-cf
             - if signed_in? 
@@ -35,23 +36,26 @@
                 #loginInfo= "Logged in as #{current_user.email},"
               %li
                 %a{ :href => "/logout", :class => "logout" } Logout
+    #container
       #wrapper.wat-cf
         .flash
           - flash.each do |type, message|
             .message{:class => type.to_s}
               <p>#{ message }</p>
-        #main
-          - if signed_in?
+              
+        - if signed_in?
+          #main
             = yield
-          - else
-            %div{ :style => "text-align: center; padding: 10px;" }
-              = "You must login to see this page."
-              %br
-              = "Make sure you register with an administrator first."
-              %br
+        - else
+          #main-login
+            .form-frame
+              %div{ :style => "text-align: center; padding: 10px; font-family: sans-serif; font-size: 1em;" }
               = render :partial => "layouts/login_options"
             
-          #footer
-            .block
-              %p=raw @footer_text
+    #footer
+      #footer-wrapper
+        %p=raw @footer_text
+        #footer-image   
+          =raw  link_to image_tag("pulse.png", :alt => 'pulse')
+      
 

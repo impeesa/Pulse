@@ -28,12 +28,14 @@ fieldset {
 
 #comment-area .comment-item {
   font-size: small;
-  width: 450px;
+  width: 600px;
   margin: 0 auto;
+  padding: 10px;
 }
 
 #comment-area .comment-item .comment-author {
   margin-bottom: 5px;
+  font-family: sans-serif;
 }
 
 #comment-area .comment-item .comment-author .date-time {
@@ -41,14 +43,31 @@ fieldset {
 }
 
 #comment-area .comment-item .comment-box {
-  border: 1px solid #999;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  padding: 3px;
-  margin-bottom: 15px;
-  background-color: #eee;
+   background: none repeat scroll 0 0 #DEF7FF;
+    border: 1px solid #BDF0FF;
+    border-radius: 5px 5px 5px 5px;
+    color: #333333;
+    margin-bottom: 15px;
+    padding: 25px;
+    box-shadow: 0 0 10px #BBBBBB;
+}
+
+#comment-area .comment-item .comment-box:hover{
+   background: none repeat scroll 0 0 #D1F4FF;
+    border: 1px solid #BDF0FF;
+    border-radius: 5px 5px 5px 5px;
+    color: #333333;
+    margin-bottom: 15px;
+    padding: 25px;
 }
 
 .pagination span.disabled, .pagination span.current, .pagination a {
   font-size: 13px;
+  padding: 9px;
+}
+
+.pagination em.current{
+  font-size: 18px;
+  padding: 10px;
+  float: left;
 }

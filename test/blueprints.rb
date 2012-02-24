@@ -1,9 +1,9 @@
 require 'machinist/active_record'
 require 'faker'
 
-Sham.define do
-  chart_name { Chart.names.rand }
-end
+#Sham.define do
+#  chart_name { Chart.names.rand }
+#end
 
 User.blueprint do
   email { 'example@example.com' }
@@ -12,7 +12,8 @@ end
 
 class User
   def self.make_admin
-    user = make :email => 'ndgiang84@gmail.com', :is_admin => true
+    #user = make :email => 'ndgiang84@gmail.com', :is_admin => true
+    user = make :email => 'ndgiang84@xiga.info', :is_admin => true
     user.groups << Group.find_or_create_by_name('Admin')
     user
   end

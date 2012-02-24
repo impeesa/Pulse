@@ -1,4 +1,5 @@
-require 'test/blueprints'
+#require 'test/blueprints'
+require "#{::Rails.root}/test/blueprints"
 require 'import_sample_data'
 
 ['Admin', 'Sales'].each do |group_name|

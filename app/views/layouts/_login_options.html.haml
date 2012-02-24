@@ -1,21 +1,29 @@
 #login-wrapper
-  or
+  #headline-text
+    = "You must login to see this page."
+    %br
+    = "Make sure you register with an administrator first."
+    %br
+                
   #local-login
-    = form_tag log_in_path do 
-      %table
-        %tr
-          %th Email
-          %td= text_field_tag :email, nil, :size => 30
-          %script{:type => 'text/javascript'}
-            $('input#email').focus();
-        %tr 
-          %th Password
-          %td= password_field_tag :password, nil, :size => 30
-        %tr
-          %th{ :style => "border:none; background-color:#ebebeb" }
-          %td{ :style => "border:none" }
-            = link_to "Login", "#", :class => "button", :id => 'local-login'
+    #login-table
+      = form_tag log_in_path do 
+        %table
+          %tr
+            %th Email
+            %td= text_field_tag :email, nil, :size => 30, :class => 'text-field'
+            %script{:type => 'text/javascript'}
+              $('input#email').focus();
+          %tr 
+            %th Password
+            %td= password_field_tag :password, nil, :size => 30, :class => 'text-field'
+          %tr
+            %th{ :style => "border:none;" }
+            %td{ :style => "border:none" }
+              = link_to "Login", "#", :class => "button", :id => 'local-login'
 
+  #or-text
+    or
   #google-login
     = link_to "Login with Google account", google_login_path, :class => "button"
 

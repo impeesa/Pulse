@@ -7,7 +7,10 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   font-style: inherit;
   font-size: 100%;
   font-family: inherit;
-  vertical-align: baseline; }
+  vertical-align: baseline;
+  font-family: sans-serif;
+      
+  }
 
 *:focus {
   outline: 10; }
@@ -33,6 +36,8 @@ blockquote:before, blockquote:after, q:before, q:after {
 
 blockquote, q {
   quotes: "" ""; }
+  
+/*
 
 table td, table th {
   border: 1px solid lightgray;
@@ -56,6 +61,90 @@ table tfoot th, table tfoot td {
 table tfoot td {
   font-weight: bold;
   text-align: right; }
+*/
+
+
+#content-table table td, #content-table table th {
+
+    background: no-repeat scroll 0 0 #CCEBED;
+    border: 1px solid #C1DAD7;
+    color: #4F6B72;
+    font:  11px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+    letter-spacing: 2px;
+    padding: 6px 6px 6px 12px;
+    text-align: left;
+    font-size: 11px;
+ }
+ 
+ #content-table table td:hover{
+
+    background: no-repeat scroll 0 0 #E6F4F5;
+    border: 1px solid #C1DAD7;
+    color: #4F6B72;
+    font:  11px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
+    letter-spacing: 2px;
+    padding: 6px 6px 6px 12px;
+    text-align: left;
+    font-size: 11px;
+ }
+ 
+
+  
+#content-table table th {
+  font-weight: bold;
+  background-color: beige; 
+      
+}
+#content-table table caption {
+  font-weight: bold;
+  font-size: 18pt;
+  text-align: center;
+  padding-bottom: 2mm; 
+ 
+}
+#content-table table thead th {
+  text-align: center; 
+}
+#content-table table tbody td.number {
+  text-align: right; 
+}
+#content-table table tbody tr.types {
+  text-indent: 2em; 
+}
+#content-table table tfoot th, table tfoot td {
+  background-color: lightblue; 
+}
+#content-table table tfoot td {
+  font-weight: bold;
+  text-align: right; 
+}
+
+
+#login-table table td, #login-table table th {
+  text-decoration: none;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+      
+  }
+#login-table table th {
+  }
+#login-table table caption {
+  font-size: 12pt;
+  text-align: center;
+  padding: 5px; 
+  }
+#login-table table thead th {
+  text-align: center; }
+#login-table table tbody td.number {
+  text-align: right; }
+#login-table table tbody tr.types {
+  text-indent: 2em; }
+#login-table table tfoot th, table tfoot td {
+  background-color: lightblue; }
+#login-table table tfoot td {
+  font-weight: bold;
+  text-align: right; }
+
 
 #account-details {
   font-size: 8pt;
@@ -80,16 +169,32 @@ ul#account-detail-filters li {
 }
 
 #login-wrapper {
-  width: 570px;
-  margin: 20px auto;
+  width: 730px;
+  margin: 0px auto;
+  padding-bottom: 40px;
+}
+
+#login-wrapper #headline-text{
+  text-align: center; 
+  padding: 0px 10px 40px 10px; 
+  font-family: sans-serif; 
+  font-size: 0.8em;
+  text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+  color: #333333;
 }
 
 #login-wrapper #local-login {
   float: left;
 }
 
+#login-wrapper #or-text {
+  float: left;
+  padding: 30px 30px;
+}
+
 #login-wrapper #google-login {
   float: right;
+  margin-top: 20px;
 }
 
 .clear {
@@ -103,10 +208,48 @@ ul#account-detail-filters li {
 {
   overflow: auto;
   /*float: left;*/
+  padding: 20px; box-shadow: 0 0 5px #BBBBBB;
+  margin-bottom: 30px;
 }
 
 .options {
-  margin: 20px;
+  color: #666666;
+    font-family: sans-serif;
+    margin: auto;
+    padding: 30px;
+    width: 250px;
+}
+
+.options select{
+/*
+  color: #000000;
+    font-family: sans-serif;
+    margin: auto;
+    padding: 10px;
+    width: 250px;*/
+    background: none repeat scroll 0 0 #D6EFFF;
+    border: 1px solid #B5E1FF;
+    color: #000000;
+    font-family: sans-serif;
+    font-size: 14px;
+    margin: auto;
+    width: 150px;
+    -moz-border-radius:4px 4px 4px 4px;
+}
+.options option{
+    background: none repeat scroll 0 0 #D6EFFF;
+    color: #000000;
+    font-family: sans-serif;
+    margin: auto;
+    padding: 2px;
+    width: 180px;
+    /*
+  color: #000000;
+    font-family: sans-serif;
+    margin: auto;
+    padding: 10px;
+    width: 250px;
+    */
 }
 
 .options #product-chart {

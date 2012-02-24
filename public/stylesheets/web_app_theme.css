@@ -3,7 +3,7 @@
 
 .selected {
   background-color: #232C30;
-  color: #fff;
+  color: #fff;m
 }
 
 .wat-cf:after {
@@ -36,15 +36,40 @@ body {
 
 #container {
   min-width: 960px;
+  margin: 0 auto;
+  /*width: 960px;*/
+  width: 1300px;
 }
 
-#header, #wrapper {
+#header, #wrapper{
   padding: 0 20px;
 }
 
+#header-wrapper {
+  /*background: none repeat scroll 0 0 #0A70FF;*/
+  border-bottom: 3px solid #B2B2B2;
+  background: url("../images/bg_header_blue.png") repeat scroll 0 0 #79924F;
+  height: 150px;
+}
+
 #header {
+  margin: 0 auto;
+  width: 960px;
+  /*background: none repeat scroll 0 0 #0A70FF;*/
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
+  padding: 10px;
   position: relative;
-  padding-top: 1px;  
+  top: 20px;
+  z-index: 2;
+  height: 90px;
+}
+
+#logo{
+    float: left;
+    height: 100px;
+    width: 150px;
+}
+  
 }
 
 #header h1 {
@@ -60,6 +85,13 @@ body {
 #main {  
   width: 100%;
   float: left;    
+  box-shadow: 0 0 10px #BBBBBB;
+}
+#main-login{  
+  box-shadow: 0 0 10px #BBBBBB;
+  margin: auto;
+  padding: 40px 0;
+  width: 900px;
 }
 
 .actions-bar {
@@ -123,13 +155,17 @@ body {
 }
 
 #user-navigation {
-  position: absolute;
-  top: 0px;
-  right: 20px;  
+    float: right;
+    font-size: 0.8em;
+    margin-top: 28px;
+    right: 20px;
+    top: 0;
 }
 
 #main-navigation {
-  width: 100%;
+  float: left;
+    margin: 30px auto auto;
+    width: 480px;
 }
 
 #user-navigation ul, #main-navigation ul, .secondary-navigation ul, #sidebar ul.navigation {
@@ -174,14 +210,11 @@ body {
   padding: 10px 15px;  
 }
 
-#footer {
-  padding-bottom: 20px;
-}
 
 /* pagination */
 
 .pagination a, .pagination span {
-  padding: 2px 5px;
+  padding: 10px;
   margin-right: 5px; 
   display: block;
   float: left;
@@ -356,19 +389,41 @@ ul.list li .item .avatar {
 
 /*  Inspired by http://particletree.com/features/rediscovering-the-button-element */
 
-a.button:link, a.button:visited, a.button:hover, a.button:active, button.button {
-  color: #222;
+a.button:link, a.button:visited, a.button:active, button.button {
   display:block;
   float:left;
   margin:0 7px 0 0;
-  background-color: #eee;
-  border:1px solid #bfbfbf;
+  background-color: #4D90FE;
+  border:1px solid #3AABE8;
   font-size: 1em;
   line-height: 1.3em;
   font-weight:bold;
   cursor:pointer;
   padding:5px 10px 6px 7px;
   text-decoration: none;
+    /*background-image: -moz-linear-gradient(center top , #4D90FE, #4787ED);*/
+    background-image: -moz-linear-gradient(center top , #31A3E0, #31A3E0);
+    color: #FFFFFF;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1)
+    -moz-border-radius:4px 4px 4px 4px;
+}
+
+a.button:hover {
+  display:block;
+  float:left;
+  margin:0 7px 0 0;
+  background-image: -moz-linear-gradient(center top , #00A6FF, #0098EB);
+  /*background-image: -moz-linear-gradient(center top , #31A3E0, #31A3E0);*/
+  /*border:1px solid #3079ED;*/
+  border: 1px solid #3AABE8;
+  font-size: 1em;
+  line-height: 1.3em;
+  font-weight:bold;
+  cursor:pointer;
+  padding:5px 10px 6px 7px;
+  text-decoration: none;
+    color: #FFFFFF;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1)
 }
 
 button.button {
@@ -399,5 +454,39 @@ button.button:hover, a.button:hover {
 
 button.button:active, a.button:active {
   background-color:#e5e5e5;
+}
+
+.text-field{
+	/*-moz-border-radius:4px 4px 4px 4px;*/
+	border:1px solid #DDDDDD;
+	-moz-border-radius:4px 4px 4px 4px;
+	/*border:1px solid #777777;*/
+	font-size:14px;
+	margin:0;
+	padding:6px;
+	font: sans-serif;
+}
+
+.text-field:focus{
+	/*border:1px solid #AAAAAA;*/
+	-moz-border-radius:4px 4px 4px 4px;
+	border:1px solid #777777;
+	/*background: #F6FCFF;*/
+}
+
+.text-field:hover{
+	/*background: #F6FCFF;*/
+	border:1px solid #777777;
+	-moz-border-radius:4px 4px 4px 4px;
+}
+
+#charts-area{
+  margin: auto;
+  width: 960px; 
+}
+
+#charts-balance-sheet{
+  margin: auto;
+  width: 400px; 
 }
 

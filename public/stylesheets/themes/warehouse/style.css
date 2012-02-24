@@ -36,16 +36,12 @@ input.checkbox {
 .gray {
   color: #999;
 }
-#header {
-  background: #232C30;
-}
 
 #header h1 a:link, #header h1 a:active, #header h1 a:hover, #header h1 a:visited {
   color: #eaeaea;
 }
 
 #main {
-  background: #EBEBEB;
   width: 100%;
 }
 
@@ -59,10 +55,6 @@ input.checkbox {
 }
 
 #main .block .content {
-  border-left: 1px solid #ddd;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ccc;
-  border-right: 1px solid #ccc;
   background: #fff;
   padding: 10px;
   overflow: auto;
@@ -81,15 +73,33 @@ input.checkbox {
 }
 
 #footer {
-  background-color: #ddd;
-  border-top: 1px solid #bbb;
-}
-
-#footer .block {
-  font-size:13px;
-  background-color: #ddd;
+  background-color: #FCFCFC;
+  border-top: 1px solid #EDEDED;
+  margin-top: 60px;
+  font-size:12px;
   padding: 0 10px;
   text-align: center;
+  font-family: sans-serif;
+  color: #333333;
+}
+
+
+#footer-wrapper {
+    height: 30px;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+    width: 960px;
+    z-index: 2;
+    text-shadow: 0 1px rgba(0, 0, 0, 0.1);
+}
+
+#footer-wrapper #footer-image{
+    position: absolute;
+    right: 50px;
+    top: -10px;
+    width: 50px;
+    height: 20px;
 }
 
 /* #sidebar .block { background: #FFF; padding-bottom:0px; } */
@@ -159,11 +169,13 @@ input.checkbox {
 
 
 #main-navigation ul li {
-  background: #456;
-  color: #eee;
-  border-top: 1px solid #5C738A;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  /*background: none repeat scroll 0 0 #1576B3;*/
+  /*background: none repeat scroll 0 0 #3B61D4;*/
+  background: none repeat scroll 0 0 rgba(3, 158, 255, 0.2);
+  border: 1px solid;
+  border-radius: 5px 5px 5px 5px;
+  color: #BBBBBB;
+  padding: 5px;
 }
 
 #main-navigation ul li.no-radius {
@@ -171,15 +183,17 @@ input.checkbox {
   border-top-right-radius: 0px;
 }
 #main-navigation ul li:hover {
-  border-top-color: #7593B0;
-  background-color: #576C82 !important;
+  background-color: #1B94E0 !important;
   color: #fff;
 }
 
 #main-navigation ul li.active {
-  border-top-color: #7593B0;
-  background-color: #B5C3CF !important;
-  color: #fff;
+  background-color: #1B94E0 !important;
+  color: #FFF;
+}
+
+#main-navigation ul li.active a{
+  color: #FFF;
 }
 
 #main-navigation ul li a:link, #main-navigation ul li a:visited, #main-navigation ul li a:hover, #main-navigation ul li a:active,
@@ -190,13 +204,11 @@ input.checkbox {
 }
 
 #user-navigation ul li a:link, #user-navigation ul li a:visited {
-  color: #CDE;
-  border-bottom: 1px dotted #345;
+  color: #E6D730;
 }
 
 #user-navigation ul li a:hover {
   color: #fff;
-  border-bottom: 1px dotted #CDE;
   text-decoration: none;
 }
 
@@ -215,12 +227,12 @@ input.checkbox {
 }
 
 .secondary-navigation ul li {
-  background: #456;
-  border-top: 1px solid #5C738A;
+  background: #30AFBF;
   color: #eee;
   margin-right: 5px;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  padding:5px;
 }
 
 .secondary-navigation ul li a {
@@ -231,6 +243,7 @@ input.checkbox {
   background: #fff !important;
   border-top: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  padding:5px;
 }
 
 .secondary-navigation ul li.active {
@@ -241,6 +254,7 @@ input.checkbox {
   margin-bottom: -1px;
   background-color: #fff !important;
   color: #333;
+  padding:5px;
 }
 
 .secondary-navigation ul li.active a {
@@ -249,8 +263,9 @@ input.checkbox {
 
 .secondary-navigation ul li:hover {
   border-top-color: #7593B0;
-  background-color: #576C82 !important;
+  background-color: #6ECFDB !important;
   color: #fff;
+  padding:5px;
 }
 
 /* pagination */
@@ -278,8 +293,8 @@ input.checkbox {
 
 .pagination a:hover {
   color: #444;
-  background: #eaeaea;
-  border: 1px solid #576C82;
+  background: #94DAFF;
+  border: 1px solid #9EDDFF;
 }
 
 /* tables */
@@ -344,13 +359,26 @@ input.checkbox {
   font-family:Georgia, serif;
 }
 
+.form-frame{
+  /*background: none repeat scroll 0 0 rgba(0, 0, 0, 0.1);*/
+  /*border: 10px solid rgba(0, 0, 0, 0.1);*/
+  border-radius: 5px 5px 5px 5px;
+  padding: 10px;
+  position: relative;
+  z-index: 2;
+    
+}
+
 /* flash-messages */
 .flash .message {
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
   text-align:center;
-  margin:0 auto 5px;
-  width:80%;
+  margin:0 auto 30px;
+  width:50%;
+  font-family: sans-serif;
+  font-size: 0.8em;
+  color: #333333;
 }
 .flash .message p {
   margin:8px;
@@ -364,8 +392,8 @@ input.checkbox {
   background-color: #ffffcc;
 }
 .flash .notice {
-  border: 1px solid #ddf;
-  background-color: #eef;
+  background-color: #FFFCD9;
+    border: 1px solid #FFF25E;
 }
 
 /* lists */

@@ -5,7 +5,7 @@ module ResultsHelper
     if total
       chart_divs = ""
       for index in (0...total)
-        chart_divs << content_tag(:div, nil, :id => "#{name}-#{index}", :style => "float:left")
+        chart_divs << content_tag(:div, nil, :id => "#{name}-#{index}", :style => "float:left; padding: 20px; box-shadow: 0 0 5px #BBBBBB;")
       end
       chart_divs.html_safe
     else
