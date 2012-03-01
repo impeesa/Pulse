@@ -18,7 +18,9 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 body {
   line-height: 1;
   color: black;
-  background: white; }
+  background: url("/images/content_bg.png") repeat-x scroll 0 0 transparent;
+  
+}
 
 ol, ul {
   list-style: none; }
@@ -66,7 +68,8 @@ table tfoot td {
 
 #content-table table td, #content-table table th {
 
-    background: no-repeat scroll 0 0 #CCEBED;
+    /*background: no-repeat scroll 0 0 #CCEBED;*/
+    background: no-repeat scroll 0 0 #FFFFFF;
     border: 1px solid #C1DAD7;
     color: #4F6B72;
     font:  11px "Trebuchet MS",Verdana,Arial,Helvetica,sans-serif;
@@ -176,11 +179,12 @@ ul#account-detail-filters li {
 
 #login-wrapper #headline-text{
   text-align: center; 
-  padding: 0px 10px 40px 10px; 
+  padding: 0px 10px; 
   font-family: sans-serif; 
   font-size: 0.8em;
   text-shadow: 0 1px rgba(0, 0, 0, 0.1);
   color: #333333;
+  margin-bottom:40px;
 }
 
 #login-wrapper #local-login {

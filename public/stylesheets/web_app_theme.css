@@ -8,7 +8,7 @@
 
 .wat-cf:after {
      content: "."; 
-     display: block; 
+     display: block; l
      height: 0; 
      clear: both; 
      visibility: hidden;
@@ -47,27 +47,43 @@ body {
 
 #header-wrapper {
   /*background: none repeat scroll 0 0 #0A70FF;*/
+  /*background: url("../images/bg_header_blue.png") repeat scroll 0 0 #79924F;*/
+  background: none repeat scroll 0 0 #0B0B0B;
   border-bottom: 3px solid #B2B2B2;
-  background: url("../images/bg_header_blue.png") repeat scroll 0 0 #79924F;
-  height: 150px;
+  box-shadow: 0 0 10px #000000;
+  height: 80px;
 }
 
 #header {
   margin: 0 auto;
-  width: 960px;
+  width: 970px;
   /*background: none repeat scroll 0 0 #0A70FF;*/
-  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);
-  padding: 10px;
-  position: relative;
-  top: 20px;
-  z-index: 2;
-  height: 90px;
+  /*background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);*/
+    background: -moz-linear-gradient(center top , #2C2C2C, #222222) repeat scroll 0 0 transparent;
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 0 0 10px #222222;
+    height: 50px;
+    margin: 0 auto;
+    position: relative;
+    top: 10px;
+    width: 970px;
+    z-index: 2;
 }
 
 #logo{
-    float: left;
+    /*float: left;
     height: 100px;
-    width: 150px;
+    width: 150px;*/
+    background: none repeat scroll 0 0 black;
+    border-left: 3px solid #222222;
+    border-radius: 2px 2px 2px 2px;
+    border-right: 3px solid #222222;
+    float: left;
+    height: 50px;
+    margin-right: 10px;
+    padding: 2px 10px 0;
+    top: -10px;
+    width: 120px;
 }
   
 }
@@ -157,14 +173,14 @@ body {
 #user-navigation {
     float: right;
     font-size: 0.8em;
-    margin-top: 28px;
+    margin-top: 18px;
     right: 20px;
     top: 0;
 }
 
 #main-navigation {
   float: left;
-    margin: 30px auto auto;
+    margin: 10px auto auto;
     width: 480px;
 }
 
