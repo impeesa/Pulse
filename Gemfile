@@ -5,7 +5,6 @@ gem 'omniauth', '0.1.4'
 gem 'fastercsv', '1.5.3'
 gem 'haml', '>3'
 gem 'will_paginate'
-#gem 'sass' #haml will no longer load sass, so please include this for later versions of pulse
 
 group :test do
   gem 'webrat', '0.7.2'
