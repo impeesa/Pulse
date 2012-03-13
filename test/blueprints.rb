@@ -1,9 +1,9 @@
 require 'machinist/active_record'
 require 'faker'
 
-#Sham.define do
-#  chart_name { Chart.names.rand }
-#end
+Sham.define do
+  chart_name { Chart.names.rand }
+end
 
 User.blueprint do
   email { 'example@example.com' }

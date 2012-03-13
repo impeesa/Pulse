@@ -46,7 +46,7 @@ ActiveRecord::Schema.define(:version => 20110607123340) do
     t.string   "accountname"
   end
 
-  create_table "group_tabs", :id => false, :force => true do |t|
+  create_table "group_tabs", :force => true do |t|
     t.integer "group_id"
     t.integer "tab_id"
   end
